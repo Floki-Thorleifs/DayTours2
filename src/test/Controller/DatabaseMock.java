@@ -1,4 +1,4 @@
-package sample;
+package test.Controller;
 
 public class DatabaseMock {
 }
