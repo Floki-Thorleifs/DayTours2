@@ -13,16 +13,23 @@ import java.time.LocalDate;
 
 public class SearchController {
 
-    public ListView resultList;
-    private DayTours dayTours = new DayTours();
+    private DayTours dayTours;
 
+    public ListView resultList;
     public ChoiceBox PriceChoiceBox;
     public ChoiceBox SeatChoiceBox;
     public DatePicker startDate;
     public DatePicker endDate;
     public ChoiceBox InterestsChoiceBox;
-    public String nameInput;
+    public TextField nameInput;
     public ChoiceBox LocationChoiceBox;
+
+    @FXML
+    public void initialize(){
+        dayTours = new DayTours();
+        ObservableList<Trip> results = FXCollections.observableArrayList(dayTours.getTrips());
+        resultList.setItems(results);
+    }
 
 
     public void searchHandler() throws ParseException {
@@ -37,8 +44,8 @@ public class SearchController {
         if(inputStartDate != null){
             dayTours.searchDates(inputStartDate, inputEndDate);
         }
-        if(nameInput != null){
-            dayTours.searchName(nameInput);
+        if(nameInput.getText() != null){
+            dayTours.searchName(nameInput.getText());
         }
         if(PriceChoiceBox.getValue() != null){
             switch (PriceChoiceBox.getValue().toString()){
