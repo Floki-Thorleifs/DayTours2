@@ -40,9 +40,7 @@
       <ChoiceBox fx:id="SeatChoiceBox" layoutX="310.0" layoutY="213.0" prefWidth="150.0" >
           <items>
               <FXCollections fx:factory="observableArrayList">
-                  <Integer fx:value=1 />
-                  <Integer fx:value=2 />
-                  <Integer fx:value=3 />
+           
               </FXCollections>
           </items>
       </ChoiceBox>
