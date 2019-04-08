@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.collections.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import java.lang.Integer?>
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import java.lang.String?>
-<?import javafx.collections.FXCollections?>
-<?import java.lang.Integer?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.SearchController">
+<AnchorPane prefHeight="800.0" prefWidth="800.0" style="-fx-background-color: #d1bfa7#d1bfa7 #d1bfa7#d1bfa7;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.SearchController">
    <children>
-      <Label layoutX="35.0" layoutY="42.0" prefHeight="30.0" prefWidth="194.0" text="Start" />
-      <Label layoutX="35.0" layoutY="96.0" prefHeight="30.0" prefWidth="184.0" text="Interests" />
-      <ChoiceBox fx:id="InterestsChoiceBox" layoutX="310.0" layoutY="93.0" prefWidth="150.0">
+      <Label layoutX="30.0" layoutY="152.0" prefHeight="38.0" prefWidth="758.0" text="Enter the starting- and end date of your trip:" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font></Label>
+      <Label layoutX="35.0" layoutY="500.0" prefHeight="30.0" prefWidth="184.0" text="Interests" />
+      <ChoiceBox fx:id="InterestsChoiceBox" layoutX="325.0" layoutY="595.0" prefWidth="150.0">
               <items>
                       <FXCollections fx:factory="observableArrayList">
                               <String fx:value="Horse Riding" />
@@ -25,7 +25,7 @@
                       </FXCollections>
               </items>
       </ChoiceBox>
-      <ChoiceBox fx:id="LocationChoiceBox" layoutX="310.0" layoutY="152.0" prefWidth="150.0">
+      <ChoiceBox fx:id="LocationChoiceBox" layoutX="325.0" layoutY="549.0" prefWidth="150.0">
           <items>
             <FXCollections fx:factory="observableArrayList">
                <String fx:value="Reykjavík" />
@@ -33,7 +33,7 @@
             </FXCollections>
           </items>
    </ChoiceBox>
-      <ChoiceBox fx:id="PriceChoiceBox" layoutX="310.0" layoutY="271.0" prefWidth="150.0">
+      <ChoiceBox fx:id="PriceChoiceBox" layoutX="325.0" layoutY="654.0" prefWidth="150.0">
        <items>
            <FXCollections fx:factory="observableArrayList">
                <String fx:value="5000kr" />
@@ -41,7 +41,7 @@
            </FXCollections>
        </items>
       </ChoiceBox>
-      <ChoiceBox fx:id="SeatChoiceBox" layoutX="310.0" layoutY="213.0" prefWidth="150.0">
+      <ChoiceBox fx:id="SeatChoiceBox" layoutX="325.0" layoutY="502.0" prefWidth="150.0">
           <items>
               <FXCollections fx:factory="observableArrayList">
                   <Integer fx:value="1" />
@@ -50,12 +50,32 @@
               </FXCollections>
           </items>
       </ChoiceBox>
-      <Label layoutX="35.0" layoutY="158.0" prefHeight="27.0" prefWidth="184.0" text="Location" />
-      <Label layoutX="35.0" layoutY="216.0" prefHeight="30.0" prefWidth="184.0" text="Price" />
-      <Label layoutX="35.0" layoutY="274.0" prefHeight="30.0" prefWidth="184.0" text="Seats" />
-      <Button layoutX="346.0" layoutY="334.0" mnemonicParsing="false" onAction="#searchHandler" text="Search" />
-      <DatePicker fx:id="startDate" editable="false" layoutX="158.0" layoutY="38.0" promptText="4/26/2019" />
-      <DatePicker fx:id="endDate" editable="false" layoutX="521.0" layoutY="38.0" promptText="4/26/2019" />
-      <Label layoutX="435.0" layoutY="43.0" prefHeight="30.0" prefWidth="54.0" text="End" />
+      <Label layoutX="35.0" layoutY="549.0" prefHeight="27.0" prefWidth="184.0" text="Location" />
+      <Label layoutX="35.0" layoutY="593.0" prefHeight="30.0" prefWidth="184.0" text="Price" />
+      <Label layoutX="35.0" layoutY="653.0" prefHeight="30.0" prefWidth="184.0" text="Seats" />
+      <Button layoutX="374.0" layoutY="718.0" mnemonicParsing="false" onAction="#searchHandler" text="Search" />
+      <DatePicker fx:id="startDate" editable="false" layoutX="199.0" layoutY="206.0" prefHeight="38.0" prefWidth="502.0" promptText="4/26/2019" />
+      <DatePicker fx:id="endDate" editable="false" layoutX="199.0" layoutY="258.0" prefHeight="38.0" prefWidth="502.0" promptText="4/26/2019" />
+      <Label layoutX="448.0" layoutY="441.0" prefHeight="30.0" prefWidth="54.0" text="End" />
+      <Label alignment="BASELINE_CENTER" prefHeight="127.0" prefWidth="800.0" style="-fx-background-color: #49494b#49494b; -fx-border-color: #bd8c7d  #bd8c7d white  #bd8c7d; -fx-border-style: 5;" textFill="#dcae1d">
+         <font>
+            <Font name="Heiti TC Medium" size="34.0" />
+         </font>
+      </Label>
+      <Label alignment="BASELINE_CENTER" layoutX="297.0" layoutY="39.0" prefHeight="49.0" prefWidth="216.0" style="-fx-background-color: #bd8c7d#bd8c7d; -fx-background-radius: 3;" text="Search" textFill="WHITE">
+         <font>
+            <Font size="34.0" />
+         </font>
+      </Label>
+      <Label layoutX="30.0" layoutY="206.0" prefHeight="38.0" prefWidth="119.0" text="Starting date:" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="30.0" layoutY="263.0" prefHeight="38.0" prefWidth="119.0" text="End date:" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
