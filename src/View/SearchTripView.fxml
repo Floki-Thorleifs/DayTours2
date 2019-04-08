@@ -42,13 +42,7 @@
        </items>
       </ChoiceBox>
       <ChoiceBox fx:id="SeatChoiceBox" layoutX="325.0" layoutY="502.0" prefWidth="150.0">
-          <items>
-              <FXCollections fx:factory="observableArrayList">
-                  <Integer fx:value="1" />
-                  <Integer fx:value="2" />
-                  <Integer fx:value="3" />
-              </FXCollections>
-          </items>
+
       </ChoiceBox>
       <Label layoutX="35.0" layoutY="549.0" prefHeight="27.0" prefWidth="184.0" text="Location" />
       <Label layoutX="35.0" layoutY="593.0" prefHeight="30.0" prefWidth="184.0" text="Price" />
