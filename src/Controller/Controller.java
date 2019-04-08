@@ -14,11 +14,4 @@ public class Controller {
     public ListView searchResults;
     public Date date = new Date();
 
-    public void searchHandler(ActionEvent actionEvent) {
-        System.out.println(date.toString());
-    }
-
-    public void changeSearch(InputMethodEvent inputMethodEvent) {
-
-    }
 }

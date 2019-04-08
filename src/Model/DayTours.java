@@ -86,6 +86,7 @@ public class DayTours {
 
 
     public void searchDates(LocalDate start, LocalDate end) throws ParseException {
+
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         ArrayList<Trip> matches = new ArrayList<Trip>();
         Date inputStart = sdf.parse(start.toString());
@@ -97,6 +98,7 @@ public class DayTours {
                 Date tripDate = sdf.parse(dates.get(j));
                 if(inputStart.before(tripDate) && inputEnd.after(tripDate) || inputStart.equals(tripDate) || inputEnd.equals(tripDate)){
                     matches.add(trips.get(j));
+                    break;
                 }
             }
         }
@@ -108,8 +110,8 @@ public class DayTours {
 
         for (int i = 0; i < trips.size(); i++) {
             String name = trips.get(i).getName();
-
-            if (name.toLowerCase().contains(s.toLowerCase())) {
+            String descr = trips.get(i).getDescription();
+            if (name.toLowerCase().contains(s.toLowerCase()) || descr.toLowerCase().contains(s.toLowerCase())) {
                 matches.add(trips.get(i));
             }
         }
@@ -126,5 +128,45 @@ public class DayTours {
             }
         }
         trips = matches;
+    }
+
+    public void searchPrice(int low, int high ) {
+        ArrayList<Trip> matches = new ArrayList<Trip>();
+
+        for(int i = 0; i < trips.size(); i++) {
+            if(trips.get(i).getPrice() >= low && trips.get(i).getPrice() <= high ) {
+                matches.add(trips.get(i));
+            }
+        }
+        trips = matches;
+    }
+
+    public void searchSeats(int number) {
+        ArrayList<Trip> matches = new ArrayList<>();
+
+        for(int i = 0; i < trips.size(); i++){
+            if(trips.get(i).getSeatCount() >= number){
+                matches.add(trips.get(i));
+            }
+        }
+        trips = matches;
+    }
+
+    public void searchInterests(String input){
+        ArrayList<Trip> matches = new ArrayList<>();
+
+        for(int i = 0; i < trips.size(); i++){
+            ArrayList<String> interests = trips.get(i).getInterests();
+            for(int j = 0; j < interests.size(); j++){
+                if(input.toLowerCase().equals(interests.get(j).toLowerCase())){
+                    matches.add(trips.get(i));
+                }
+            }
+        }
+        trips = matches;
+    }
+
+    public ArrayList<Trip> getTrips(){
+        return trips;
     }
 }

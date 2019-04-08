@@ -57,5 +57,6 @@
       <DatePicker fx:id="startDate" editable="false" layoutX="158.0" layoutY="38.0" promptText="4/26/2019" />
       <DatePicker fx:id="endDate" editable="false" layoutX="521.0" layoutY="38.0" promptText="4/26/2019" />
       <Label layoutX="435.0" layoutY="43.0" prefHeight="30.0" prefWidth="54.0" text="End" />
+      <ListView fx:id="resultList" layoutX="58.0" layoutY="377.0" prefHeight="336.0" prefWidth="663.0" />
    </children>
 </AnchorPane>
