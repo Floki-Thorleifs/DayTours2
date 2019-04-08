@@ -1,0 +1,64 @@
+
+[
+  {
+    "Name": "Golden Circle",
+    "Interests": "Nature",
+    "Location": "South Side",
+    "Tour Guide": "Hannes Ólafsson",
+    "Duration": "6 hours",
+    "Date": "2019-06-05",
+    "Introduction": "A day tour to see all the wonders of the Golden Circle",
+    "Description": "Come join us to the tour where we will see all the things that are included in the Golden Circle! This is a 6 hour trip of seeing the wonders that Iceland is known for"
+
+  },
+  {
+    "Name": "Blue Lagoon and the Penis Museum",
+    "Interests": "Museum",
+    "Location": "South Side",
+    "Tour Guide": "Sindri Flókason",
+    "Duration": "8 hours",
+    "Date": "2019-07-05",
+    "Introduction": "A day tour to visit the famous Blue Lagoon and the the famous penises",
+    "Description": "Join us to enjoy a day out and prepare your body for the Blue Lagoon! The Blue Lagoon is a luxury place and we promise a great experience. After the relaxation at the Blue Lagoon we visit the penises at the Penis Muesum"
+  },
+  {
+    "Name": "Horse Riding along the black beach",
+    "Interests": "Horse Riding",
+    "Location": "East Side",
+    "Tour Guide": "Sólveig Jónsdóttir",
+    "Duration": "5 hours",
+    "Date": "2019-07-10",
+    "Introduction": "A day tour where we go horse riding along the beatiful black beach",
+    "Description": "This is truly a magnificent experience that we recommend every single tourist to try out. The horses available are very easy to handle so that shouldn't worry anyone. The black beach is truly magical and if you want a pretty photo for you Instagram page, this is then the tour for you!"
+  },
+  {
+    "Name": "Visit the westfjords",
+    "Interests": "Nature",
+    "Location": "West side",
+    "Tour Guide": "Eiríkur Ingason",
+    "Duration": "12 hours",
+    "Date": "2019-07-30",
+    "Introduction": "A day tour to visit the famous westfjords.",
+    "Description": "This is truly a magnificent experience that we recommend every single tourist to try out. There will be alot of driving but we promise that every single second will be worth it. The landscape in the West side is like no other you have ever seen and is truly magical and if you want a pretty photo for you Instagram page, this is then the tour for you!"
+  },
+  {
+    "Name": "Spa day at the Blue Lagoon",
+    "Interests": "Nature",
+    "Location": "South Side",
+    "Tour Guide": "Elísa Georgsdóttir",
+    "Duration": "6 hours",
+    "Date": "2019-05-23",
+    "Introduction": "A day tour to visit the famous Blue Lagoon and have a wonderful spa day",
+    "Description": "The Blue Lagoon should is a place that every tourist should visit. This tour is very luxurous and you will feel like roalty after this experience. There will be massage, sauna, face mask, hot pool and enough champagne for you the entire time!"
+  },
+  {
+    "Name": "The whale wonders of the North",
+    "Interests": "Nature",
+    "Location": "North Side",
+    "Tour Guide": "Eyvindur Jónsson",
+    "Duration": "5 hours",
+    "Date": "2019-08-01",
+    "Introduction": "A day tour to go on a boat and see the whales",
+    "Description": "Want to see part of the wildlife that surrounds Iceland? Then this is the opportunity for you! Here you will enjoy a day out at the sea with great company and come take a look at the famous whales that swim around in the sea surrounding the North of Iceland."
+  }
+]

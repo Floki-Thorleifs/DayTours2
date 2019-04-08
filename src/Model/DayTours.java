@@ -1,5 +1,10 @@
 package Model;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+
+import java.io.FileReader;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -12,76 +17,43 @@ public class DayTours {
 
     public DayTours(){
 
-        ArrayList<String> dates1 = new ArrayList();
-        dates1.add("2019-04-21");
-        dates1.add("2019-04-12");
-        dates1.add("2019-04-29");
+        JSONParser parser = new JSONParser();
 
-        ArrayList<String> dates2 = new ArrayList();
-        dates2.add("2019-05-21");
-        dates2.add("2019-04-12");
-        dates2.add("2019-04-29");
+        try {
+            Object obj = parser.parse(new FileReader("/Users/egill/Dropbox/University/Þroun/DayTours2/src/JSON/gogn.json"));
+            JSONArray jsonArray = (JSONArray) obj;
 
-        ArrayList<String> dates3 = new ArrayList();
-        dates3.add("2019-04-21");
-        dates3.add("2019-05-12");
-        dates3.add("2019-04-29");
+            for (int i = 0; i < jsonArray.size(); i++) {
+                JSONObject jsonObject = (JSONObject) jsonArray.get(i);
 
-        ArrayList<String> interests1 = new ArrayList();
-        interests1.add("Agriculture");
-        interests1.add("Horses");
+                String name = (String) jsonObject.get("Name");
+                String interests = (String) jsonObject.get("Interests");
+                String location = (String) jsonObject.get("Location");
+                String tourGuide = (String) jsonObject.get("Tour Guide");
+                String duration = (String) jsonObject.get("Duration");
+                String date = (String) jsonObject.get("Date");
+                String introduction = (String) jsonObject.get("Introduction");
+                String description = (String) jsonObject.get("Description");
 
-        ArrayList<String> interests2 = new ArrayList();
-        interests2.add("Horses");
-        interests2.add("Museums");
-        interests2.add("Dancing");
+                trips.add(new Trip(
+                        name,
+                        interests,
+                        description,
+                        duration,
+                        introduction,
+                        8,
+                        i,
+                        tourGuide,
+                        date,
+                        location,
+                        5000
+                ));
+            }
 
-        ArrayList<String> interests3 = new ArrayList();
-        interests3.add("Dancing");
-        interests3.add("Nature");
-        trips.add(new Trip(
-                "Horses and stuff",
-                interests1,
-                "Go horsebackriding, look at horses and see the nature",
-                5,
-                "Go horsebackriding and stuff",
-                8,
-                1,
-                "Egill",
-                dates1,
-                "Egilsstaðir",
-                5000
-        ));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-        trips.add(new Trip(
-                "Dancing & horses",
-                interests2,
-                "Go dancing with the horses & go to the penis museum",
-                3,
-                "Dance with the horses",
-                10,
-                2,
-                "Emma",
-                dates2,
-                "Selfoss",
-                4000
-        ));
-
-        trips.add(new Trip(
-                "Glacier dancing",
-                interests3,
-                "Go see all the glaciers & Iceland and dance on them",
-                9,
-                "Dance on the best glaciers",
-                2,
-                3,
-                "Flóki",
-                dates3,
-                "Reykjavík",
-                10000
-        ));
-
-        //String name, String[] interests, String description, int duration, String introduction, int seats, int id, String tourGuide, String[] date, String location, int price)
     }
 
 

@@ -5,20 +5,20 @@ import java.util.ArrayList;
 public class Trip {
 
     private String name;
-    private ArrayList<String> interests;
+    private String interests;
     private String description;
-    private int duration;
+    private String duration;
     private String introduction;
     private int seats;
     private int id;
     //TODO Import Booking
     private String tourGuide;
-    private ArrayList<String> date;
+    private String date;
     private String location;
     private int price;
 
 
-    public Trip(String NAME, ArrayList<String> INTERESTS, String DESCRIPTION, int DURATION, String INTRODUCTION, int SEATS, int ID, String TOURGUIDE, ArrayList<String> DATE, String LOCATION, int PRICE){
+    public Trip(String NAME, String INTERESTS, String DESCRIPTION, String DURATION, String INTRODUCTION, int SEATS, int ID, String TOURGUIDE, String DATE, String LOCATION, int PRICE){
         this.name = NAME;
         this.interests = INTERESTS;
         this.description = DESCRIPTION;
