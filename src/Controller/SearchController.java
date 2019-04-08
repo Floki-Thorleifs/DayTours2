@@ -18,7 +18,7 @@ public class SearchController {
 
     public ChoiceBox PriceChoiceBox;
     public ChoiceBox SeatChoiceBox;
-    public DatePicker startDate;    
+    public DatePicker startDate;
     public DatePicker endDate;
     public ChoiceBox InterestsChoiceBox;
     public String nameInput;
