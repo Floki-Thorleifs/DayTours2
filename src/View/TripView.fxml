@@ -1,64 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TripView">
+<AnchorPane fx:id="rootPane" prefHeight="800.0" prefWidth="800.0" style="-fx-background-color: #d1bfa7#d1bfa7 #d1bfa7#d1bfa7;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.SearchController">
    <children>
-      <Label layoutX="206.0" layoutY="24.0" prefHeight="51.0" prefWidth="188.0" text="Glacier Dancing">
+      <Label alignment="BASELINE_CENTER" prefHeight="127.0" prefWidth="800.0" style="-fx-background-color: #49494b; -fx-border-color: #bd8c7d  #bd8c7d white  #bd8c7d; -fx-border-style: 5;" textFill="#dcae1d">
          <font>
-            <Font size="26.0" />
+            <Font name="Heiti TC Medium" size="34.0" />
          </font>
       </Label>
-      <Label layoutX="88.0" layoutY="75.0" prefHeight="17.0" prefWidth="71.0" text="2019-05-21">
+      <Label alignment="BASELINE_CENTER" layoutX="297.0" layoutY="39.0" prefHeight="49.0" prefWidth="216.0" style="-fx-background-color: #bd8c7d#bd8c7d; -fx-background-radius: 3;" text="Trip" textFill="WHITE">
          <font>
-            <Font size="12.0" />
+            <Font size="34.0" />
          </font>
       </Label>
-      <Label layoutX="27.0" layoutY="75.0" text="Duration">
+      <Label layoutX="30.0" layoutY="206.0" prefHeight="38.0" prefWidth="119.0" text="Name:" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="27.0" layoutY="92.0" text="Interest:">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Label>
-      <Label layoutX="88.0" layoutY="92.0" text="Dancing, nature">
-         <font>
-            <Font size="12.0" />
-         </font>
-      </Label>
-      <Label layoutX="27.0" layoutY="109.0" text="Price">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Label>
-      <Label layoutX="88.0" layoutY="109.0" prefHeight="17.0" prefWidth="43.0" text="10000">
-         <font>
-            <Font size="12.0" />
-         </font>
-      </Label>
-      <TextArea layoutX="31.0" layoutY="137.0" prefHeight="200.0" prefWidth="525.0" text="Description &#10;&#10;Lorem ipsum?&#10;" />
-      <Label layoutX="32.0" layoutY="347.0" text="Tour Guide: ">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Label>
-      <Label layoutX="107.0" layoutY="347.0" text="Emma Líf Jónsdóttir">
-         <font>
-            <Font size="12.0" />
-         </font>
-      </Label>
-      <Button layoutX="373.0" layoutY="349.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="126.0" text="Book Trip!" textFill="#1f1c99">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Button>
    </children>
 </AnchorPane>

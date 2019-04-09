@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="800.0" prefWidth="800.0" style="-fx-background-color: #d1bfa7#d1bfa7 #d1bfa7#d1bfa7;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.SearchController">
+<AnchorPane fx:id="rootPane" prefHeight="800.0" prefWidth="800.0" style="-fx-background-color: #d1bfa7#d1bfa7 #d1bfa7#d1bfa7;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.SearchController">
    <children>
       <Label layoutX="30.0" layoutY="152.0" prefHeight="38.0" prefWidth="758.0" text="Enter the starting- and end date of your trip:" textFill="WHITE">
          <font>
@@ -26,7 +26,7 @@
                   <FXCollections fx:factory="observableArrayList">
                       <String fx:value="0 - 5000 kr" />
                       <String fx:value="5000 - 10000 kr" />
-                      <String fx:value="10000 - 15000 kr"/>
+                      <String fx:value="10000 - 15000 kr" />
                   </FXCollections>
               </items>
       </ChoiceBox>
@@ -98,12 +98,12 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <ListView fx:id="resultList" layoutX="30.0" layoutY="566.0" prefHeight="223.0" prefWidth="739.0" />
       <Label layoutX="30.0" layoutY="447.0" prefHeight="38.0" prefWidth="119.0" text="Name:" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
       <TextField fx:id="nameInput" layoutX="199.0" layoutY="454.0" prefHeight="25.0" prefWidth="502.0" />
+      <TableView fx:id="resultList" layoutX="30.0" layoutY="556.0" onMouseClicked="#onClick" prefHeight="200.0" prefWidth="682.0" />
    </children>
 </AnchorPane>
