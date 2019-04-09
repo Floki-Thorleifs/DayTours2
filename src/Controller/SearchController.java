@@ -7,15 +7,20 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.text.ParseException;
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class SearchController {
 
@@ -32,6 +37,8 @@ public class SearchController {
     public ChoiceBox LocationChoiceBox;
 
     public TableColumn<ObservableList<String>, String> column;
+
+    private int selectedTrip;
 
     @FXML
     public void initialize(){
@@ -126,13 +133,31 @@ public class SearchController {
 //        LocalDate inputEndDate = endDate.getValue();
 //        dayTours.searchDates(inputStartDate, inputEndDate);
     }
+
+    public int getSelected(){
+        return selectedTrip;
+    }
+
     @FXML
     public void onClick(MouseEvent mouseEvent) throws IOException {
         if(mouseEvent.getClickCount() == 2){
             String id = resultList.getSelectionModel().getSelectedItem().get(5);
-            AnchorPane pane = FXMLLoader.load(getClass().getClassLoader().getResource("./View/TripView.fxml"));
-            rootPane.getChildren().setAll(pane);
-        }
+            selectedTrip = Integer.parseInt(id);
 
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getClassLoader().getResource("./View/TripView.fxml"));
+            Parent tableViewParent = loader.load();
+
+            Scene tableViewScene = new Scene(tableViewParent);
+
+            TripController controller = loader.getController();
+            controller.initData(selectedTrip);
+
+            Stage window = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
+
+            window.setScene(tableViewScene);
+            window.show();
+
+        }
     }
 }
