@@ -52,4 +52,11 @@ public class Trip {
         return this.seats;
     }
 
+    public String getDescription() { return this.description; }
+
+    public int getPrice() {
+        return this.price;
+    }
+
+    public ArrayList<String> getInterests(){ return this.interests; }
 }

@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import java.lang.Integer?>
 <?import java.lang.String?>
 <?import javafx.collections.FXCollections?>
@@ -10,22 +15,22 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="800.0" prefWidth="800.0" style="-fx-background-color: #d1bfa7#d1bfa7 #d1bfa7#d1bfa7;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.SearchController">
+<AnchorPane prefHeight="800.0" prefWidth="800.0" style="-fx-background-color: #d1bfa7#d1bfa7 #d1bfa7#d1bfa7;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.SearchController">
    <children>
       <Label layoutX="30.0" layoutY="152.0" prefHeight="38.0" prefWidth="758.0" text="Enter the starting- and end date of your trip:" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font></Label>
-      <Label layoutX="35.0" layoutY="500.0" prefHeight="30.0" prefWidth="184.0" text="Interests" />
-      <ChoiceBox fx:id="InterestsChoiceBox" layoutX="325.0" layoutY="595.0" prefWidth="150.0">
+      <ChoiceBox fx:id="PriceChoiceBox" layoutX="199.0" layoutY="384.0" prefHeight="25.0" prefWidth="502.0">
               <items>
-                      <FXCollections fx:factory="observableArrayList">
-                              <String fx:value="Horse Riding" />
-                              <String fx:value="Dancing" />
-                      </FXCollections>
+                  <FXCollections fx:factory="observableArrayList">
+                      <String fx:value="0 - 5000 kr" />
+                      <String fx:value="5000 - 10000 kr" />
+                      <String fx:value="10000 - 15000 kr"/>
+                  </FXCollections>
               </items>
       </ChoiceBox>
-      <ChoiceBox fx:id="LocationChoiceBox" layoutX="325.0" layoutY="549.0" prefWidth="150.0">
+      <ChoiceBox fx:id="LocationChoiceBox" layoutX="199.0" layoutY="346.0" prefHeight="25.0" prefWidth="502.0">
           <items>
             <FXCollections fx:factory="observableArrayList">
                <String fx:value="Reykjavík" />
@@ -33,25 +38,27 @@
             </FXCollections>
           </items>
    </ChoiceBox>
-      <ChoiceBox fx:id="PriceChoiceBox" layoutX="325.0" layoutY="654.0" prefWidth="150.0">
+      <ChoiceBox fx:id="SeatChoiceBox" layoutX="199.0" layoutY="422.0" prefHeight="25.0" prefWidth="502.0">
        <items>
            <FXCollections fx:factory="observableArrayList">
-               <String fx:value="5000kr" />
-               <String fx:value="10000kr" />
+               <String fx:value="1" />
+               <String fx:value="6" />
            </FXCollections>
        </items>
       </ChoiceBox>
-      <ChoiceBox fx:id="SeatChoiceBox" layoutX="325.0" layoutY="502.0" prefWidth="150.0">
+      <ChoiceBox fx:id="InterestsChoiceBox" layoutX="199.0" layoutY="308.0" prefHeight="25.0" prefWidth="502.0">
+          <items>
+              <FXCollections fx:factory="observableArrayList">
+                  <String fx:value="Horse Riding" />
+                  <String fx:value="Dancing" />
+              </FXCollections>
+          </items>
 
       </ChoiceBox>
-      <Label layoutX="35.0" layoutY="549.0" prefHeight="27.0" prefWidth="184.0" text="Location" />
-      <Label layoutX="35.0" layoutY="593.0" prefHeight="30.0" prefWidth="184.0" text="Price" />
-      <Label layoutX="35.0" layoutY="653.0" prefHeight="30.0" prefWidth="184.0" text="Seats" />
-      <Button layoutX="374.0" layoutY="718.0" mnemonicParsing="false" onAction="#searchHandler" text="Search" />
+      <Button layoutX="374.0" layoutY="524.0" mnemonicParsing="false" onAction="#searchHandler" prefHeight="32.0" prefWidth="52.0" text="Search" />
       <DatePicker fx:id="startDate" editable="false" layoutX="199.0" layoutY="206.0" prefHeight="38.0" prefWidth="502.0" promptText="4/26/2019" />
       <DatePicker fx:id="endDate" editable="false" layoutX="199.0" layoutY="258.0" prefHeight="38.0" prefWidth="502.0" promptText="4/26/2019" />
-      <Label layoutX="448.0" layoutY="441.0" prefHeight="30.0" prefWidth="54.0" text="End" />
-      <Label alignment="BASELINE_CENTER" prefHeight="127.0" prefWidth="800.0" style="-fx-background-color: #49494b#49494b; -fx-border-color: #bd8c7d  #bd8c7d white  #bd8c7d; -fx-border-style: 5;" textFill="#dcae1d">
+      <Label alignment="BASELINE_CENTER" prefHeight="127.0" prefWidth="800.0" style="-fx-background-color: #49494b; -fx-border-color: #bd8c7d  #bd8c7d white  #bd8c7d; -fx-border-style: 5;" textFill="#dcae1d">
          <font>
             <Font name="Heiti TC Medium" size="34.0" />
          </font>
@@ -71,5 +78,32 @@
             <Font size="16.0" />
          </font>
       </Label>
+      <Label layoutX="30.0" layoutY="301.0" prefHeight="38.0" prefWidth="119.0" text="Interests:" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="30.0" layoutY="339.0" prefHeight="38.0" prefWidth="119.0" text="Location:" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="30.0" layoutY="377.0" prefHeight="38.0" prefWidth="119.0" text="Price:" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="30.0" layoutY="415.0" prefHeight="38.0" prefWidth="119.0" text="Seats:" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <ListView fx:id="resultList" layoutX="30.0" layoutY="566.0" prefHeight="223.0" prefWidth="739.0" />
+      <Label layoutX="30.0" layoutY="447.0" prefHeight="38.0" prefWidth="119.0" text="Name:" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nameInput" layoutX="199.0" layoutY="454.0" prefHeight="25.0" prefWidth="502.0" />
    </children>
 </AnchorPane>
