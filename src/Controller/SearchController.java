@@ -104,7 +104,7 @@ public class SearchController {
         }
 
         ObservableList<Trip> results = FXCollections.observableArrayList(dayTours.getTrips());
-        resultList.setItems(results)
+        resultList.setItems(results);
 
         
 
