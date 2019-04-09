@@ -7,9 +7,12 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -129,9 +132,19 @@ public class SearchController {
     @FXML
     public void onClick(MouseEvent mouseEvent) throws IOException {
         if(mouseEvent.getClickCount() == 2){
+
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("./View/TripView.fxml"));
+
+            Stage stage = new Stage();
+            stage.setScene(new Scene((Pane) loader.load()));
+
+            TripController controller = loader.<TripController>getController();
             String id = resultList.getSelectionModel().getSelectedItem().get(5);
-            AnchorPane pane = FXMLLoader.load(getClass().getClassLoader().getResource("./View/TripView.fxml"));
+            controller.initData(id);
+            stage.show();
+            /*AnchorPane pane = loader.load();
             rootPane.getChildren().setAll(pane);
+*/
         }
 
     }
