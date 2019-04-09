@@ -1,24 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BookTripView">
+<AnchorPane prefHeight="800.0" prefWidth="600.0" style="-fx-background-color: #3AAFA9;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BookTripView">
    <children>
-      <Label layoutX="76.0" layoutY="38.0" text="Name" />
-      <Label layoutX="76.0" layoutY="98.0" text="Lastname" />
-      <Label layoutX="79.0" layoutY="157.0" text="Email" />
-      <Label layoutX="78.0" layoutY="219.0" text="Phone Number" />
-      <Label layoutX="78.0" layoutY="277.0" text="Number of Seats" />
-      <TextField layoutX="276.0" layoutY="32.0" prefHeight="27.0" prefWidth="224.0" />
-      <TextField layoutX="276.0" layoutY="92.0" />
-      <TextField layoutX="276.0" layoutY="151.0" />
-      <TextField layoutX="276.0" layoutY="213.0" />
-      <Slider layoutX="276.0" layoutY="280.0" prefHeight="21.0" prefWidth="224.0" />
-      <Button layoutX="222.0" layoutY="331.0" mnemonicParsing="false" text="Book Trip" />
+      <Label layoutX="32.0" layoutY="213.0" text="First Name" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <Label layoutX="34.0" layoutY="278.0" text="Last name" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <Label layoutX="33.0" layoutY="339.0" text="Email" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <Label layoutX="31.0" layoutY="400.0" text="Phone Number" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <Label layoutX="34.0" layoutY="466.0" text="Number of Seats" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <TextField layoutX="170.0" layoutY="212.0" prefHeight="27.0" prefWidth="392.0" />
+      <TextField layoutX="170.0" layoutY="278.0" prefHeight="25.0" prefWidth="392.0" />
+      <TextField layoutX="170.0" layoutY="339.0" prefHeight="25.0" prefWidth="392.0" />
+      <TextField layoutX="170.0" layoutY="400.0" prefHeight="25.0" prefWidth="392.0" />
+      <Label layoutX="-1.0" prefHeight="127.0" prefWidth="651.0" style="-fx-background-color: #49494b;" />
+      <Slider layoutX="191.0" layoutY="468.0" prefHeight="21.0" prefWidth="350.0" />
+      <Button layoutX="234.0" layoutY="560.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="143.0" style="-fx-background-color: #2B7A78;" text="Book Trip" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <Label alignment="BASELINE_CENTER" layoutX="196.0" layoutY="40.0" prefHeight="50.0" prefWidth="256.0" style="-fx-background-color: #2B7A78; -fx-background-radius: 3;" text="Book Your Trip" textFill="WHITE">
+         <font>
+            <Font size="34.0" />
+         </font>
+      </Label>
+      <Label layoutX="31.0" layoutY="157.0" prefHeight="17.0" prefWidth="379.0" text="Fill out the following information to book your trip:" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
