@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
+import java.awt.print.Book;
 import java.io.IOException;
 
 public class TripController {
@@ -24,6 +25,7 @@ public class TripController {
     public Label LocationId;
     public Label SeatsId;
     public Label DescriptionId;
+    public int tripID;
 
 
     @FXML
@@ -36,11 +38,13 @@ public class TripController {
         TourId.setText(trip.getName());
         DateId.setText(trip.getDate());
         InterestsId.setText(trip.getInterests());
-        PriceId.setText(Integer.toString(trip.getPrice()) + " kr");
+        PriceId.setText((trip.getPrice()) + " kr");
         GuideId.setText(trip.getTourGuide());
         LocationId.setText(trip.getLocation());
         SeatsId.setText(Integer.toString(trip.getSeatCount()));
         DescriptionId.setText(trip.getDescription());
+
+        tripID = trip.getId();
     }
 
     public void bookHandler(ActionEvent actionEvent) {
@@ -56,6 +60,9 @@ public class TripController {
         }
 
         Scene tableViewScene = new Scene(tableViewParent);
+
+        BookingController controller = loader.getController();
+        controller.initData(tripID);
 
         Stage window = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
 
