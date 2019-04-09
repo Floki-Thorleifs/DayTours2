@@ -7,11 +7,12 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -35,6 +36,7 @@ public class SearchController {
     public ChoiceBox LocationChoiceBox;
 
     public TableColumn<ObservableList<String>, String> column;
+
 
     @FXML
     public void initialize(){
@@ -129,24 +131,29 @@ public class SearchController {
 //        LocalDate inputEndDate = endDate.getValue();
 //        dayTours.searchDates(inputStartDate, inputEndDate);
     }
+
+
     @FXML
     public void onClick(MouseEvent mouseEvent) throws IOException {
         if(mouseEvent.getClickCount() == 2){
 
-            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("./View/TripView.fxml"));
-
-            Stage stage = new Stage();
-            stage.setScene(new Scene((Pane) loader.load()));
-
-            TripController controller = loader.<TripController>getController();
             String id = resultList.getSelectionModel().getSelectedItem().get(5);
+
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getClassLoader().getResource("./View/TripView.fxml"));
+            Parent tableViewParent = loader.load();
+
+            Scene tableViewScene = new Scene(tableViewParent);
+
+            TripController controller = loader.getController();
             Trip trip = dayTours.getTripById(id);
             controller.initData(trip);
-            stage.show();
-            /*AnchorPane pane = loader.load();
-            rootPane.getChildren().setAll(pane);
-*/
-        }
 
+            Stage window = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
+
+            window.setScene(tableViewScene);
+            window.show();
+
+        }
     }
 }
