@@ -15,6 +15,8 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("../View/SearchTripView.fxml"));
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root, 800, 800));
+        primaryStage.setMaxWidth(800);
+        primaryStage.setMaxHeight(900);
         primaryStage.show();
     }
 

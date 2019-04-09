@@ -53,7 +53,11 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <TextArea fx:id="DescriptionId" editable="false" layoutX="68.0" layoutY="355.0" opacity="0.83" prefHeight="336.0" prefWidth="665.0" style="-fx-border-color: #FFFFFF; -fx-wrap-text: true; -fx-border-radius: 5px;" />
+      <TextArea fx:id="DescriptionId" editable="false" layoutX="68.0" layoutY="355.0" opacity="0.83" prefHeight="336.0" prefWidth="665.0" style="-fx-border-color: #FFFFFF; -fx-wrap-text: true; -fx-border-radius: 5px;">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </TextArea>
       <Button layoutX="474.0" layoutY="711.0" mnemonicParsing="false" onAction="#bookHandler" prefHeight="43.0" prefWidth="134.0" style="-fx-background-color: #2B7A78;" text="Book Trip!" textFill="WHITE">
          <font>
             <Font size="16.0" />
