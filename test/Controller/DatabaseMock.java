@@ -38,7 +38,7 @@ public class DatabaseMock {
         interests3.add("Dancing");
         interests3.add("Nature");
         System.out.println("HAlló");
-        trips.add(new Trip(
+       /* trips.add(new Trip(
                 "Horses and stuff",
                 interests1,
                 "Go horsebackriding, look at horses and see the nature",
@@ -78,7 +78,7 @@ public class DatabaseMock {
                 dates3,
                 "Reykjavík",
                 10000
-        ));
+        ));*/
 
         //String name, String[] interests, String description, int duration, String introduction, int seats, int id, String tourGuide, String[] date, String location, int price)
     }
@@ -98,13 +98,7 @@ public class DatabaseMock {
         ArrayList<Trip> matches = new ArrayList<Trip>();
 
         for(int i = 0; i < trips.size(); i++){
-            ArrayList<String> dates = trips.get(i).getDates();
-            for(int j = 0; j < dates.size(); j++){
-                String tripDate = dates.get(j);
-                if(tripDate == date){
-                    matches.add(trips.get(i));
-                }
-            }
+
         }
         return matches;
     }

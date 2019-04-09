@@ -1,16 +1,14 @@
 package Model;
 
-import java.util.ArrayList;
-
 public class Trip {
 
+    private int id;
     private String name;
     private String interests;
     private String description;
     private String duration;
     private String introduction;
     private int seats;
-    private int id;
     //TODO Import Booking
     private String tourGuide;
     private String date;
@@ -18,14 +16,14 @@ public class Trip {
     private int price;
 
 
-    public Trip(String NAME, String INTERESTS, String DESCRIPTION, String DURATION, String INTRODUCTION, int SEATS, int ID, String TOURGUIDE, String DATE, String LOCATION, int PRICE){
+    public Trip(int ID, String NAME, String INTERESTS, String DESCRIPTION, String DURATION, String INTRODUCTION, int SEATS, String TOURGUIDE, String DATE, String LOCATION, int PRICE){
+        this.id = ID;
         this.name = NAME;
         this.interests = INTERESTS;
         this.description = DESCRIPTION;
         this.duration = DURATION;
         this.introduction = INTRODUCTION;
         this.seats = SEATS;
-        this.id = ID;
         this.tourGuide = TOURGUIDE;
         this.date = DATE;
         this.location = LOCATION;
@@ -40,7 +38,7 @@ public class Trip {
         return  this.location;
     }
 
-    public ArrayList<String> getDates(){
+    public String getDate(){
         return this.date;
     }
 
@@ -58,5 +56,5 @@ public class Trip {
         return this.price;
     }
 
-    public ArrayList<String> getInterests(){ return this.interests; }
+    public String getInterests(){ return this.interests; }
 }
