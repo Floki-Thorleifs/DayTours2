@@ -10,7 +10,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="800.0" prefWidth="600.0" style="-fx-background-color: #3AAFA9;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BookTripView">
+<AnchorPane prefHeight="800.0" prefWidth="600.0" style="-fx-background-color: #3AAFA9;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.BookingController">
    <children>
       <Label layoutX="32.0" layoutY="213.0" text="First Name" textFill="WHITE">
          <font>
@@ -32,12 +32,12 @@
          <font>
             <Font size="16.0" />
          </font></Label>
-      <TextField layoutX="170.0" layoutY="212.0" prefHeight="27.0" prefWidth="392.0" />
-      <TextField layoutX="170.0" layoutY="278.0" prefHeight="25.0" prefWidth="392.0" />
-      <TextField layoutX="170.0" layoutY="339.0" prefHeight="25.0" prefWidth="392.0" />
-      <TextField layoutX="170.0" layoutY="400.0" prefHeight="25.0" prefWidth="392.0" />
+      <TextField fx:id="CustomerFirstname" layoutX="170.0" layoutY="212.0" prefHeight="27.0" prefWidth="392.0" />
+      <TextField fx:id="CustomerLastname" layoutX="170.0" layoutY="278.0" prefHeight="25.0" prefWidth="392.0" />
+      <TextField fx:id="CustomerEmail" layoutX="170.0" layoutY="339.0" prefHeight="25.0" prefWidth="392.0" />
+      <TextField fx:id="CustomerNumber" layoutX="170.0" layoutY="400.0" prefHeight="25.0" prefWidth="392.0" />
       <Label layoutX="-1.0" prefHeight="127.0" prefWidth="651.0" style="-fx-background-color: #49494b;" />
-      <Slider layoutX="191.0" layoutY="468.0" prefHeight="21.0" prefWidth="350.0" />
+      <Slider fx:id="CustomerSeats" layoutX="191.0" layoutY="468.0" prefHeight="21.0" prefWidth="350.0" />
       <Button layoutX="234.0" layoutY="560.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="143.0" style="-fx-background-color: #2B7A78;" text="Book Trip" textFill="WHITE">
          <font>
             <Font size="18.0" />
