@@ -136,6 +136,15 @@ public class DayTours {
         trips = matches;
     }
 
+    public Trip getTripById(String id) {
+        for(int i = 0; i < trips.size(); i++){
+            if(trips.get(i).getId() == Integer.parseInt(id)){
+                return trips.get(i);
+            }
+        }
+        return null;
+    }
+
     public ArrayList<Trip> getTrips(){
         return trips;
     }

@@ -140,7 +140,8 @@ public class SearchController {
 
             TripController controller = loader.<TripController>getController();
             String id = resultList.getSelectionModel().getSelectedItem().get(5);
-            controller.initData(id);
+            Trip trip = dayTours.getTripById(id);
+            controller.initData(trip);
             stage.show();
             /*AnchorPane pane = loader.load();
             rootPane.getChildren().setAll(pane);
