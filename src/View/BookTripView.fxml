@@ -10,7 +10,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="800.0" prefWidth="600.0" style="-fx-background-color: #3AAFA9;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BookTripView">
+<AnchorPane prefHeight="800.0" prefWidth="600.0" style="-fx-background-color: #3AAFA9;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.BookTripView">
    <children>
       <Label layoutX="32.0" layoutY="213.0" text="First Name" textFill="WHITE">
          <font>
