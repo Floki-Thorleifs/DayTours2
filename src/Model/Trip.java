@@ -63,4 +63,6 @@ public class Trip {
     public String getDuration(){ return this.duration;}
 
     public int getId(){ return this.id; }
+
+    public String getTourGuide() { return this.tourGuide; }
 }

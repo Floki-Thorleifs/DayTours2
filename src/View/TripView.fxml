@@ -11,12 +11,12 @@
 
 <AnchorPane fx:id="rootPane" prefHeight="800.0" prefWidth="600.0" style="-fx-background-color: #3AAFA9;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.TripController">
    <children>
-      <Label alignment="BASELINE_CENTER" prefHeight="127.0" prefWidth="800.0" style="-fx-background-color: #49494b; -fx-border-color: #bd8c7d  #bd8c7d white  #bd8c7d; -fx-border-style: 5;" textFill="#dcae1d">
+      <Label alignment="BASELINE_CENTER" contentDisplay="CENTER" prefHeight="127.0" prefWidth="800.0" style="-fx-background-color: #49494b; -fx-border-color: #bd8c7d  #bd8c7d white  #bd8c7d; -fx-border-style: 5;" textFill="#dcae1d">
          <font>
             <Font name="Heiti TC Medium" size="34.0" />
          </font>
       </Label>
-      <Label fx:id="TourId" alignment="BASELINE_CENTER" layoutX="297.0" layoutY="39.0" prefHeight="49.0" prefWidth="216.0" style="-fx-background-color: #2B7A78; -fx-background-radius: 3;" textFill="WHITE">
+      <Label fx:id="TourId" alignment="CENTER" contentDisplay="CENTER" layoutX="400.0" layoutY="39.0" style="-fx-background-color: #2B7A78; -fx-background-radius: 3;" textFill="WHITE" textOverrun="CLIP">
          <font>
             <Font size="34.0" />
          </font>
@@ -61,7 +61,7 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <Label fx:id="DescriptionId" layoutX="68.0" layoutY="355.0" prefHeight="336.0" prefWidth="665.0" style="-fx-border-color: #FFFFFF;" />
+      <TextArea fx:id="DescriptionId" editable="false" layoutX="68.0" layoutY="355.0" prefHeight="336.0" prefWidth="665.0" style="-fx-border-color: #FFFFFF;" />
       <Button layoutX="324.0" layoutY="711.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="134.0" style="-fx-background-color: #2B7A78;" text="Book Trip!" textFill="WHITE">
          <font>
             <Font size="16.0" />
