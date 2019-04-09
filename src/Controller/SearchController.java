@@ -20,7 +20,6 @@ import java.text.ParseException;
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
-import java.util.logging.Logger;
 
 public class SearchController {
 
@@ -38,7 +37,6 @@ public class SearchController {
 
     public TableColumn<ObservableList<String>, String> column;
 
-    private int selectedTrip;
 
     @FXML
     public void initialize(){
@@ -134,15 +132,12 @@ public class SearchController {
 //        dayTours.searchDates(inputStartDate, inputEndDate);
     }
 
-    public int getSelected(){
-        return selectedTrip;
-    }
 
     @FXML
     public void onClick(MouseEvent mouseEvent) throws IOException {
         if(mouseEvent.getClickCount() == 2){
+
             String id = resultList.getSelectionModel().getSelectedItem().get(5);
-            selectedTrip = Integer.parseInt(id);
 
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getClassLoader().getResource("./View/TripView.fxml"));
@@ -151,7 +146,8 @@ public class SearchController {
             Scene tableViewScene = new Scene(tableViewParent);
 
             TripController controller = loader.getController();
-            controller.initData(selectedTrip);
+            Trip trip = dayTours.getTripById(id);
+            controller.initData(trip);
 
             Stage window = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
 

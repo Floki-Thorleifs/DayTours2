@@ -1,32 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.collections.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" prefHeight="800.0" prefWidth="800.0" style="-fx-background-color: #d1bfa7#d1bfa7 #d1bfa7#d1bfa7;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.TripController">
+<AnchorPane fx:id="rootPane" prefHeight="800.0" prefWidth="600.0" style="-fx-background-color: #3AAFA9;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.TripController">
    <children>
-      <Label alignment="BASELINE_CENTER" prefHeight="127.0" prefWidth="800.0" style="-fx-background-color: #49494b; -fx-border-color: #bd8c7d  #bd8c7d white  #bd8c7d; -fx-border-style: 5;" textFill="#dcae1d">
+      <Label fx:id="TourId" alignment="BASELINE_CENTER" contentDisplay="CENTER" prefHeight="127.0" prefWidth="800.0" style="-fx-background-color: #49494b; -fx-border-color: #bd8c7d  #bd8c7d white  #bd8c7d; -fx-border-style: 5;" textFill="#dcae1d">
          <font>
             <Font name="Heiti TC Medium" size="34.0" />
          </font>
       </Label>
-      <Label alignment="BASELINE_CENTER" layoutX="297.0" layoutY="39.0" prefHeight="49.0" prefWidth="216.0" style="-fx-background-color: #bd8c7d#bd8c7d; -fx-background-radius: 3;" text="Trip" textFill="WHITE">
-         <font>
-            <Font size="34.0" />
-         </font>
-      </Label>
-      <Label layoutX="30.0" layoutY="206.0" prefHeight="38.0" prefWidth="119.0" text="Name:" textFill="WHITE">
+      <Label layoutX="66.0" layoutY="171.0" prefHeight="27.0" prefWidth="101.0" text="Date: " textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
+      <Label fx:id="DateId" layoutX="172.0" layoutY="172.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="66.0" layoutY="198.0" prefHeight="27.0" prefWidth="101.0" text="Interests:" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="66.0" layoutY="225.0" prefHeight="27.0" prefWidth="101.0" text="Price:" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="66.0" layoutY="252.0" prefHeight="27.0" prefWidth="101.0" text="Tourguide:" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="InterestsId" layoutX="172.0" layoutY="199.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="PriceId" layoutX="172.0" layoutY="226.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label id="guideId" fx:id="GuideId" layoutX="172.0" layoutY="253.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="DescriptionId" editable="false" layoutX="68.0" layoutY="355.0" opacity="0.83" prefHeight="336.0" prefWidth="665.0" style="-fx-border-color: #FFFFFF; -fx-wrap-text: true; -fx-border-radius: 5px;" />
+      <Button layoutX="474.0" layoutY="711.0" mnemonicParsing="false" onAction="#bookHandler" prefHeight="43.0" prefWidth="134.0" style="-fx-background-color: #2B7A78;" text="Book Trip!" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Label layoutX="68.0" layoutY="279.0" prefHeight="27.0" prefWidth="101.0" text="Location:" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="68.0" layoutY="306.0" prefHeight="27.0" prefWidth="101.0" text="Seats: " textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label id="locationId" fx:id="GuideId1" layoutX="172.0" layoutY="280.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label id="seatsId" fx:id="GuideId2" layoutX="172.0" layoutY="307.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Button layoutX="199.0" layoutY="711.0" mnemonicParsing="false" onAction="#backHandler" prefHeight="43.0" prefWidth="134.0" style="-fx-background-color: #2B7A78;" text="Back" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
