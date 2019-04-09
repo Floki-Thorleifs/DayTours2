@@ -20,13 +20,13 @@ public class DayTours {
         JSONParser parser = new JSONParser();
 
         try {
-            Object obj = parser.parse(new FileReader("/Users/egill/Dropbox/University/Þroun/DayTours2/src/JSON/gogn.json"));
+            Object obj = parser.parse(new FileReader("src/JSON/gogn.json"));
             JSONArray jsonArray = (JSONArray) obj;
 
             for (int i = 0; i < jsonArray.size(); i++) {
                 JSONObject jsonObject = (JSONObject) jsonArray.get(i);
 
-                int id = (int) jsonObject.get("id");
+                int id =  (int)((long)jsonObject.get("id"));
                 String name = (String) jsonObject.get("Name");
                 String interests = (String) jsonObject.get("Interests");
                 String location = (String) jsonObject.get("Location");
@@ -34,9 +34,9 @@ public class DayTours {
                 String duration = (String) jsonObject.get("Duration");
                 String date = (String) jsonObject.get("Date");
                 String introduction = (String) jsonObject.get("Introduction");
-                int seats = (int) jsonObject.get("Seats");
+                int seats = (int)((long)jsonObject.get("Seats"));
                 String description = (String) jsonObject.get("Description");
-                int price = (int) jsonObject.get("Price");
+                int price = (int)((long)jsonObject.get("Price"));
 
                 trips.add(new Trip(
                         id,
@@ -68,13 +68,10 @@ public class DayTours {
         Date inputEnd = sdf.parse(end.toString());
 
         for (int i = 0; i < trips.size(); i++) {
-            ArrayList<String> dates = trips.get(i).getDate();
-            for (int j = 0; j < dates.size(); j++) {
-                Date tripDate = sdf.parse(dates.get(j));
-                if(inputStart.before(tripDate) && inputEnd.after(tripDate) || inputStart.equals(tripDate) || inputEnd.equals(tripDate)){
-                    matches.add(trips.get(j));
-                    break;
-                }
+            String date = trips.get(i).getDate();
+            Date tripDate = sdf.parse(date);
+            if(inputStart.before(tripDate) && inputEnd.after(tripDate) || inputStart.equals(tripDate) || inputEnd.equals(tripDate)){
+                matches.add(trips.get(i));
             }
         }
         trips = matches;
@@ -131,11 +128,9 @@ public class DayTours {
         ArrayList<Trip> matches = new ArrayList<>();
 
         for(int i = 0; i < trips.size(); i++){
-            ArrayList<String> interests = trips.get(i).getInterests();
-            for(int j = 0; j < interests.size(); j++){
-                if(input.toLowerCase().equals(interests.get(j).toLowerCase())){
-                    matches.add(trips.get(i));
-                }
+            String interests = trips.get(i).getInterests();
+            if(input.toLowerCase().equals(interests.toLowerCase())){
+                matches.add(trips.get(i));
             }
         }
         trips = matches;

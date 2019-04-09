@@ -4,18 +4,15 @@ import Model.DayTours;
 import Model.Trip;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-
-import java.io.FileReader;
 import java.text.ParseException;
 import java.time.LocalDate;
-import java.util.Iterator;
+import java.util.ArrayList;
 
 public class SearchController {
 
@@ -33,30 +30,7 @@ public class SearchController {
     @FXML
     public void initialize(){
         dayTours = new DayTours();
-        JSONParser parser = new JSONParser();
 
-        try {
-            System.out.println("Byrja");
-//            Object obj = parser.parse(new FileReader("../JSON/gogn.json"));
-            Object obj = parser.parse(new FileReader("/Users/egill/Dropbox/University/Þroun/DayTours2/src/JSON/gogn.json"));
-            JSONArray jsonArray = (JSONArray) obj;
-
-            JSONObject gamli = (JSONObject) jsonArray.get(2);
-            String name = (String) gamli.get("Name");
-//            System.out.println(name);
-
-            for (int i = 0; i < jsonArray.size(); i++) {
-                JSONObject feitt = (JSONObject) jsonArray.get(i);
-                String nname = (String) feitt.get("Name");
-                System.out.println(nname);
-            }
-
-            System.out.println("gekk upp");
-
-        } catch (Exception e) {
-            System.out.println("failed");
-            e.printStackTrace();
-        }
         ObservableList<Trip> results = FXCollections.observableArrayList(dayTours.getTrips());
         resultList.setItems(results);
     }
@@ -71,7 +45,7 @@ public class SearchController {
             String location = LocationChoiceBox.getValue().toString();
             dayTours.searchLocations(location);
         }
-        if(inputStartDate != null){
+        if(inputStartDate != null && inputEndDate != null){
             dayTours.searchDates(inputStartDate, inputEndDate);
         }
         if(nameInput.getText() != null){
@@ -102,9 +76,13 @@ public class SearchController {
         if(SeatChoiceBox.getValue() != null) {
             dayTours.searchSeats(Integer.parseInt(SeatChoiceBox.getValue().toString()));
         }
-
         ObservableList<Trip> results = FXCollections.observableArrayList(dayTours.getTrips());
-        resultList.setItems(results);
+        ArrayList<String> names = new ArrayList<>();
+        for(int i = 0; i < results.size(); i++){
+            names.add(results.get(i).getName());
+        }
+        ObservableList<String> fin = FXCollections.observableArrayList(names);
+        resultList.setItems(fin);
 
         
 

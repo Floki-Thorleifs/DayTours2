@@ -1,7 +1,5 @@
 package Model;
 
-import java.util.ArrayList;
-
 public class Trip {
 
     private int id;
@@ -58,5 +56,5 @@ public class Trip {
         return this.price;
     }
 
-//    public ArrayList<String> getInterests(){ return this.interests; }
+    public String getInterests(){ return this.interests; }
 }
