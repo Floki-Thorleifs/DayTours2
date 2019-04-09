@@ -57,4 +57,10 @@ public class Trip {
     }
 
     public String getInterests(){ return this.interests; }
+
+    public String getIntroduction(){ return this.introduction; }
+
+    public String getDuration(){ return this.duration;}
+
+    public int getId(){ return this.id; }
 }

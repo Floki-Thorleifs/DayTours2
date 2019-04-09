@@ -2,23 +2,27 @@ package Controller;
 
 import Model.DayTours;
 import Model.Trip;
+import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.time.LocalDate;
-import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class SearchController {
 
+    public TableView<ObservableList<String>> resultList = new TableView<>();
+    public AnchorPane rootPane;
     private DayTours dayTours;
 
-    public ListView resultList;
     public ChoiceBox PriceChoiceBox;
     public ChoiceBox SeatChoiceBox;
     public DatePicker startDate;
@@ -27,12 +31,42 @@ public class SearchController {
     public TextField nameInput;
     public ChoiceBox LocationChoiceBox;
 
+    public TableColumn<ObservableList<String>, String> column;
+
     @FXML
     public void initialize(){
         dayTours = new DayTours();
+        List<String> columnNames = Arrays.asList("Name","Available Seats","Duration","Date","Price"
+        ,"ID");
+        for(int i = 0; i < columnNames.size(); i++) {
+            final int finalIdx = i;
+            column = new TableColumn<>(columnNames.get(i));
+            column.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().get(finalIdx)));
+            resultList.getColumns().add(column);
+        }
+        getTrips();
 
+    }
+
+    private void getTrips(){
+        resultList.getItems().remove(0, resultList.getItems().size());
         ObservableList<Trip> results = FXCollections.observableArrayList(dayTours.getTrips());
-        resultList.setItems(results);
+        for(int j = 0; j < results.size(); j++){
+            String name = results.get(j).getName();
+            String price = Integer.toString(results.get(j).getPrice());
+            String date = results.get(j).getDate();
+            String seats = Integer.toString(results.get(j).getSeatCount());
+            String duration = results.get(j).getDuration();
+            String id = Integer.toString(results.get(j).getId());
+            ObservableList<String> plep = FXCollections.observableArrayList();
+            plep.add(name);
+            plep.add(seats);
+            plep.add(duration);
+            plep.add(date);
+            plep.add(price);
+            plep.add(id);
+            resultList.getItems().add(plep);
+        }
     }
 
 
@@ -76,13 +110,14 @@ public class SearchController {
         if(SeatChoiceBox.getValue() != null) {
             dayTours.searchSeats(Integer.parseInt(SeatChoiceBox.getValue().toString()));
         }
-        ObservableList<Trip> results = FXCollections.observableArrayList(dayTours.getTrips());
+        getTrips();
+        /*ObservableList<Trip> results = FXCollections.observableArrayList(dayTours.getTrips());
         ArrayList<String> names = new ArrayList<>();
         for(int i = 0; i < results.size(); i++){
             names.add(results.get(i).getName());
         }
         ObservableList<String> fin = FXCollections.observableArrayList(names);
-        resultList.setItems(fin);
+        resultList.setItems(fin);*/
 
         
 
@@ -90,5 +125,14 @@ public class SearchController {
 //        LocalDate inputStartDate = startDate.getValue();
 //        LocalDate inputEndDate = endDate.getValue();
 //        dayTours.searchDates(inputStartDate, inputEndDate);
+    }
+    @FXML
+    public void onClick(MouseEvent mouseEvent) throws IOException {
+        if(mouseEvent.getClickCount() == 2){
+            String id = resultList.getSelectionModel().getSelectedItem().get(5);
+            AnchorPane pane = FXMLLoader.load(getClass().getClassLoader().getResource("./View/TripView.fxml"));
+            rootPane.getChildren().setAll(pane);
+        }
+
     }
 }
