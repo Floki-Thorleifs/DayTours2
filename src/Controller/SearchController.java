@@ -18,6 +18,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.text.ParseException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -28,7 +29,7 @@ public class SearchController {
     private DayTours dayTours;
 
     public ChoiceBox PriceChoiceBox;
-    public ChoiceBox SeatChoiceBox;
+    public TextField SeatChoiceBox;
     public DatePicker startDate;
     public DatePicker endDate;
     public ChoiceBox InterestsChoiceBox;
@@ -41,6 +42,13 @@ public class SearchController {
     @FXML
     public void initialize(){
         dayTours = new DayTours();
+        ArrayList<ArrayList<String>> info = dayTours.getInfo();
+        ObservableList<String> interests = FXCollections.observableArrayList(info.get(0));
+        InterestsChoiceBox.setItems(interests);
+        ObservableList<String> places = FXCollections.observableArrayList(info.get(1));
+        LocationChoiceBox.setItems(places);
+
+
         List<String> columnNames = Arrays.asList("Name","Available Seats","Duration","Date","Price"
         ,"ID");
         for(int i = 0; i < columnNames.size(); i++) {
@@ -111,9 +119,8 @@ public class SearchController {
             System.out.println(InterestsChoiceBox.getValue());
             dayTours.searchInterests(InterestsChoiceBox.getValue().toString());
         }
-
-        if(SeatChoiceBox.getValue() != null) {
-            dayTours.searchSeats(Integer.parseInt(SeatChoiceBox.getValue().toString()));
+        if(SeatChoiceBox.hasProperties()){
+            dayTours.searchSeats(Integer.parseInt(SeatChoiceBox.getText()));
         }
         getTrips();
         /*ObservableList<Trip> results = FXCollections.observableArrayList(dayTours.getTrips());

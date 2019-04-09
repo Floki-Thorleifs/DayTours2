@@ -95,7 +95,7 @@ public class DayTours {
         ArrayList<Trip> matches = new ArrayList<Trip>();
 
         for (int i = 0; i < trips.size(); i++) {
-            if (trips.get(i).getLocation() == s) {
+            if (trips.get(i).getLocation().equals(s)) {
                 matches.add(trips.get(i));
             }
         }
@@ -143,6 +143,23 @@ public class DayTours {
             }
         }
         return null;
+    }
+
+    public ArrayList<ArrayList<String>> getInfo() {
+        ArrayList<String> interests = new ArrayList<>();
+        ArrayList<String> places = new ArrayList<>();
+        for(int i = 0; i < trips.size(); i++){
+            if(!interests.contains(trips.get(i).getInterests())){
+                interests.add(trips.get(i).getInterests());
+            }
+            if(!places.contains(trips.get(i).getLocation())){
+                places.add(trips.get(i).getLocation());
+            }
+        }
+        ArrayList<ArrayList<String>> stuff = new ArrayList<>();
+        stuff.add(interests);
+        stuff.add(places);
+        return stuff;
     }
 
     public ArrayList<Trip> getTrips(){
