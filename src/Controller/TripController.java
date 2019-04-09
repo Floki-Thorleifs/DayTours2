@@ -20,7 +20,11 @@ public class TripController {
     public Label InterestsId;
     public Label PriceId;
     public Label GuideId;
-    public TextArea DescriptionId;
+//    public TextArea DescriptionId;
+    public Label LocationId;
+    public Label SeatsId;
+    public Label DescriptionId;
+
 
     @FXML
     public void initialize() throws IOException {
@@ -32,8 +36,10 @@ public class TripController {
         TourId.setText(trip.getName());
         DateId.setText(trip.getDate());
         InterestsId.setText(trip.getInterests());
-        PriceId.setText(Integer.toString(trip.getPrice()));
+        PriceId.setText(Integer.toString(trip.getPrice()) + " kr");
         GuideId.setText(trip.getTourGuide());
+        LocationId.setText(trip.getLocation());
+        SeatsId.setText(Integer.toString(trip.getSeatCount()));
         DescriptionId.setText(trip.getDescription());
     }
 
