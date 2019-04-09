@@ -24,7 +24,7 @@ public class Booking {
     }
 
     public String getFullName() {
-        return this.name + this.lastName;
+        return this.name + " " + this.lastName;
     }
 
     public String getEmail() {
@@ -38,5 +38,6 @@ public class Booking {
     public int getTicketAmount() {
         return this.ticketAmount;
     }
+
 
 }

@@ -1,3 +1,4 @@
+/*
 package Controller;
 
 import Model.Trip;
@@ -38,7 +39,7 @@ public class DatabaseMock {
         interests3.add("Dancing");
         interests3.add("Nature");
         System.out.println("HAlló");
-       /* trips.add(new Trip(
+       trips.add(new Trip(
                 "Horses and stuff",
                 interests1,
                 "Go horsebackriding, look at horses and see the nature",
@@ -78,7 +79,7 @@ public class DatabaseMock {
                 dates3,
                 "Reykjavík",
                 10000
-        ));*/
+        ));
 
         //String name, String[] interests, String description, int duration, String introduction, int seats, int id, String tourGuide, String[] date, String location, int price)
     }
@@ -118,3 +119,4 @@ public class DatabaseMock {
     }
 
 }
+*/

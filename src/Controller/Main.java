@@ -13,7 +13,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("../View/SearchTripView.fxml"));
-        primaryStage.setTitle("Hello World");
+        primaryStage.setTitle("Day Tours");
         primaryStage.setScene(new Scene(root, 800, 800));
         primaryStage.setMaxWidth(800);
         primaryStage.setMaxHeight(900);
