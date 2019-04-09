@@ -26,6 +26,7 @@ public class DayTours {
             for (int i = 0; i < jsonArray.size(); i++) {
                 JSONObject jsonObject = (JSONObject) jsonArray.get(i);
 
+                int id = (int) jsonObject.get("id");
                 String name = (String) jsonObject.get("Name");
                 String interests = (String) jsonObject.get("Interests");
                 String location = (String) jsonObject.get("Location");
@@ -33,20 +34,22 @@ public class DayTours {
                 String duration = (String) jsonObject.get("Duration");
                 String date = (String) jsonObject.get("Date");
                 String introduction = (String) jsonObject.get("Introduction");
+                int seats = (int) jsonObject.get("Seats");
                 String description = (String) jsonObject.get("Description");
+                int price = (int) jsonObject.get("Price");
 
                 trips.add(new Trip(
+                        id,
                         name,
                         interests,
                         description,
                         duration,
                         introduction,
-                        8,
-                        i,
+                        seats,
                         tourGuide,
                         date,
                         location,
-                        5000
+                        price
                 ));
             }
 
@@ -65,7 +68,7 @@ public class DayTours {
         Date inputEnd = sdf.parse(end.toString());
 
         for (int i = 0; i < trips.size(); i++) {
-            ArrayList<String> dates = trips.get(i).getDates();
+            ArrayList<String> dates = trips.get(i).getDate();
             for (int j = 0; j < dates.size(); j++) {
                 Date tripDate = sdf.parse(dates.get(j));
                 if(inputStart.before(tripDate) && inputEnd.after(tripDate) || inputStart.equals(tripDate) || inputEnd.equals(tripDate)){
