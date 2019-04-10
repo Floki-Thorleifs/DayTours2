@@ -25,7 +25,7 @@ public class TripController {
     public Label LocationId;
     public Label SeatsId;
     public Label DescriptionId;
-    public int tripID;
+    public Trip selectedTrip;
 
 
     @FXML
@@ -44,7 +44,7 @@ public class TripController {
         SeatsId.setText(Integer.toString(trip.getSeatCount()));
         DescriptionId.setText(trip.getDescription());
 
-        tripID = trip.getId();
+        selectedTrip = trip;
     }
 
     public void bookHandler(ActionEvent actionEvent) {
@@ -62,7 +62,7 @@ public class TripController {
         Scene tableViewScene = new Scene(tableViewParent);
 
         BookingController controller = loader.getController();
-        controller.initData(tripID);
+        controller.initData(selectedTrip);
 
         Stage window = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
 
