@@ -40,6 +40,7 @@ public class BookingController {
 
 
     public void initData(Trip trip) {
+        System.out.println(trip.getName());
         selectedTrip = trip;
     }
 
@@ -93,6 +94,9 @@ public class BookingController {
 
             Scene tableViewScene = new Scene(tableViewParent);
 
+            Thanks thanks = loader.getController();
+            thanks.errorData(selectedTrip);
+
             Stage window = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
 
             window.setScene(tableViewScene);
@@ -139,7 +143,7 @@ public class BookingController {
 
     public void backHandler(ActionEvent actionEvent) {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getClassLoader().getResource("./View/SearchTripView.fxml"));
+        loader.setLocation(getClass().getClassLoader().getResource("./View/TripView.fxml"));
 
         Parent tableViewParent;
         try {
@@ -150,6 +154,10 @@ public class BookingController {
         }
 
         Scene tableViewScene = new Scene(tableViewParent);
+
+        TripController controller = loader.getController();
+        controller.initData(selectedTrip);
+
 
         Stage window = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
 
