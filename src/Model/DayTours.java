@@ -13,7 +13,8 @@ import java.util.Date;
 
 public class DayTours {
 
-    private ArrayList<Trip> trips = new ArrayList<Trip>();
+    public ArrayList<Trip> trips = new ArrayList<Trip>();
+    private ArrayList<Trip> filtered = trips;
 
     public DayTours(){
 
@@ -22,6 +23,7 @@ public class DayTours {
         try {
             Object obj = parser.parse(new FileReader("src/JSON/gogn.json"));
             JSONArray jsonArray = (JSONArray) obj;
+
 
             for (int i = 0; i < jsonArray.size(); i++) {
                 JSONObject jsonObject = (JSONObject) jsonArray.get(i);
@@ -74,7 +76,7 @@ public class DayTours {
                 matches.add(trips.get(i));
             }
         }
-        trips = matches;
+        filtered = matches;
     }
 
     public void searchName(String s) {
@@ -88,18 +90,18 @@ public class DayTours {
             }
         }
 
-        trips = matches;
+        filtered = matches;
     }
 
     public void searchLocations(String s) {
         ArrayList<Trip> matches = new ArrayList<Trip>();
 
         for (int i = 0; i < trips.size(); i++) {
-            if (trips.get(i).getLocation() == s) {
+            if (trips.get(i).getLocation().equals(s)) {
                 matches.add(trips.get(i));
             }
         }
-        trips = matches;
+        filtered = matches;
     }
 
     public void searchPrice(int low, int high ) {
@@ -110,7 +112,7 @@ public class DayTours {
                 matches.add(trips.get(i));
             }
         }
-        trips = matches;
+        filtered = matches;
     }
 
     public void searchSeats(int number) {
@@ -121,7 +123,7 @@ public class DayTours {
                 matches.add(trips.get(i));
             }
         }
-        trips = matches;
+        filtered = matches;
     }
 
     public void searchInterests(String input){
@@ -133,7 +135,7 @@ public class DayTours {
                 matches.add(trips.get(i));
             }
         }
-        trips = matches;
+        filtered = matches;
     }
 
     public Trip getTripById(String id) {
@@ -145,7 +147,30 @@ public class DayTours {
         return null;
     }
 
+    public ArrayList<ArrayList<String>> getInfo() {
+        ArrayList<String> interests = new ArrayList<>();
+        ArrayList<String> places = new ArrayList<>();
+        for(int i = 0; i < trips.size(); i++){
+            if(!interests.contains(trips.get(i).getInterests())){
+                interests.add(trips.get(i).getInterests());
+            }
+            if(!places.contains(trips.get(i).getLocation())){
+                places.add(trips.get(i).getLocation());
+            }
+        }
+        ArrayList<ArrayList<String>> stuff = new ArrayList<>();
+        stuff.add(interests);
+        stuff.add(places);
+        return stuff;
+    }
+
     public ArrayList<Trip> getTrips(){
-        return trips;
+        return filtered;
+    }
+
+    public void freshStart(){
+        System.out.println(filtered.get(1).getName());
+        System.out.println(trips.get(1).getName());
+        filtered = trips;
     }
 }

@@ -14,10 +14,16 @@ import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.text.ParseException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -28,7 +34,7 @@ public class SearchController {
     private DayTours dayTours;
 
     public ChoiceBox PriceChoiceBox;
-    public ChoiceBox SeatChoiceBox;
+    public TextField SeatChoiceBox;
     public DatePicker startDate;
     public DatePicker endDate;
     public ChoiceBox InterestsChoiceBox;
@@ -41,6 +47,13 @@ public class SearchController {
     @FXML
     public void initialize(){
         dayTours = new DayTours();
+        ArrayList<ArrayList<String>> info = dayTours.getInfo();
+        ObservableList<String> interests = FXCollections.observableArrayList(info.get(0));
+        InterestsChoiceBox.setItems(interests);
+        ObservableList<String> places = FXCollections.observableArrayList(info.get(1));
+        LocationChoiceBox.setItems(places);
+
+
         List<String> columnNames = Arrays.asList("Name","Available Seats","Duration","Date","Price"
         ,"ID");
         for(int i = 0; i < columnNames.size(); i++) {
@@ -51,6 +64,30 @@ public class SearchController {
         }
         getTrips();
 
+    }
+
+    private void testing(){
+        JSONParser parser = new JSONParser();
+
+        try {
+            Object obj = parser.parse(new FileReader("src/JSON/bookings.json"));
+            JSONArray jsonArray = (JSONArray) obj;
+
+            JSONObject newJsonObject = new JSONObject();
+            newJsonObject.put("gamli", "netti");
+            newJsonObject.put("netti", "gamli");
+
+            jsonArray.add(newJsonObject);
+
+            FileWriter file = new FileWriter("src/JSON/bookings.json");
+
+            file.write(jsonArray.toJSONString());
+            file.flush();
+            file.close();
+
+        } catch (Exception e) {
+            System.out.println("Failed.");
+        }
     }
 
     private void getTrips(){
@@ -76,7 +113,7 @@ public class SearchController {
 
 
     public void searchHandler() throws ParseException {
-        dayTours = new DayTours();
+        dayTours.freshStart();
         LocalDate inputStartDate = startDate.getValue();
         LocalDate inputEndDate = endDate.getValue();
 
@@ -111,9 +148,8 @@ public class SearchController {
             System.out.println(InterestsChoiceBox.getValue());
             dayTours.searchInterests(InterestsChoiceBox.getValue().toString());
         }
-
-        if(SeatChoiceBox.getValue() != null) {
-            dayTours.searchSeats(Integer.parseInt(SeatChoiceBox.getValue().toString()));
+        if(SeatChoiceBox.hasProperties()){
+            dayTours.searchSeats(Integer.parseInt(SeatChoiceBox.getText()));
         }
         getTrips();
         /*ObservableList<Trip> results = FXCollections.observableArrayList(dayTours.getTrips());
