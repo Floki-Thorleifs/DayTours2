@@ -14,19 +14,14 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("../View/SearchTripView.fxml"));
         primaryStage.setTitle("Day Tours");
-        primaryStage.setScene(new Scene(root, 800, 800));
+        primaryStage.setScene(new Scene(root, 800, 830));
         primaryStage.setMaxWidth(800);
-        primaryStage.setMaxHeight(900);
+        primaryStage.setMaxHeight(830);
+        primaryStage.setMinWidth(800);
+        primaryStage.setMinHeight(830);
         primaryStage.show();
     }
 
-    public void setTrip_id(int id){
-        this.trip_id = id;
-    }
-
-    public int getTrip_id(){
-        return this.trip_id;
-    }
 
 
     public static void main(String[] args) {
