@@ -53,24 +53,24 @@ public class BookingController {
 
                         int id = selectedTrip.getId();
                         String firstName = CustomerFirstname.getText();
-                        String lastName = CustomerFirstname.getText();
-                        String email = CustomerFirstname.getText();
-                        String phonenumber = CustomerFirstname.getText();
-                        int seats = Integer.parseInt(CustomerFirstname.getText());
+                        String lastName = CustomerLastname.getText();
+                        String email = CustomerEmail.getText();
+                        String phonenumber = CustomerNumber.getText();
+                        int seats = Integer.parseInt(CustomerSeats.getText());
                         String date = selectedTrip.getDate();
 
                         booking = new Booking(id, firstName, lastName, email, phonenumber, seats, date);
 
                         try {
                                 FXMLLoader loader = new FXMLLoader();
-                                loader.setLocation(getClass().getClassLoader().getResource("./View/TripView.fxml"));
+                                loader.setLocation(getClass().getClassLoader().getResource("./View/Thanks.fxml"));
                                 Parent tableViewParent = loader.load();
 
                                 Scene tableViewScene = new Scene(tableViewParent);
 
-                                TripController controller = loader.getController();
+                                Thanks thankyou = loader.getController();
 
-//                                controller.initData(selectedTrip, booking);
+                                thankyou.initData(selectedTrip, booking);
         
                                 Stage window = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
 
