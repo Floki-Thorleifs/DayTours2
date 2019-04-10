@@ -23,7 +23,7 @@ public class Thanks {
 
     public void initData(Trip trip, Booking booking){
 
-        seatsBooked.setText(Integer.toString(booking.getTicketAmount()));
+        seatsBooked.setText(Integer.toString(booking.getSeats()));
         dateBooked.setText(trip.getDate());
         tripBooked.setText(trip.getName());
         locationBooked.setText(trip.getLocation());
