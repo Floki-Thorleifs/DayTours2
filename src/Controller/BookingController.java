@@ -1,11 +1,12 @@
 package Controller;
 
 import Model.Booking;
+import Model.DayTours;
+import Model.Trip;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
 
 public class BookingController {
 
@@ -37,6 +38,12 @@ public class BookingController {
         }
 
 
+        public void bookHandler(ActionEvent actionEvent) {
+
+                DayTours trips = new DayTours();
+                Trip trip = trips.getTripById(Integer.toString(tripID));
+
+        }
 }
 
 

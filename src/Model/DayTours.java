@@ -13,7 +13,8 @@ import java.util.Date;
 
 public class DayTours {
 
-    private ArrayList<Trip> trips = new ArrayList<Trip>();
+    public ArrayList<Trip> trips = new ArrayList<Trip>();
+    private ArrayList<Trip> filtered = trips;
 
     public DayTours(){
 
@@ -75,7 +76,7 @@ public class DayTours {
                 matches.add(trips.get(i));
             }
         }
-        trips = matches;
+        filtered = matches;
     }
 
     public void searchName(String s) {
@@ -89,7 +90,7 @@ public class DayTours {
             }
         }
 
-        trips = matches;
+        filtered = matches;
     }
 
     public void searchLocations(String s) {
@@ -100,7 +101,7 @@ public class DayTours {
                 matches.add(trips.get(i));
             }
         }
-        trips = matches;
+        filtered = matches;
     }
 
     public void searchPrice(int low, int high ) {
@@ -111,7 +112,7 @@ public class DayTours {
                 matches.add(trips.get(i));
             }
         }
-        trips = matches;
+        filtered = matches;
     }
 
     public void searchSeats(int number) {
@@ -122,7 +123,7 @@ public class DayTours {
                 matches.add(trips.get(i));
             }
         }
-        trips = matches;
+        filtered = matches;
     }
 
     public void searchInterests(String input){
@@ -134,7 +135,7 @@ public class DayTours {
                 matches.add(trips.get(i));
             }
         }
-        trips = matches;
+        filtered = matches;
     }
 
     public Trip getTripById(String id) {
@@ -164,6 +165,12 @@ public class DayTours {
     }
 
     public ArrayList<Trip> getTrips(){
-        return trips;
+        return filtered;
+    }
+
+    public void freshStart(){
+        System.out.println(filtered.get(1).getName());
+        System.out.println(trips.get(1).getName());
+        filtered = trips;
     }
 }

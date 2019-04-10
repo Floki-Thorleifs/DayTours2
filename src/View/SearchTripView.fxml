@@ -34,12 +34,6 @@
               </items>
       </ChoiceBox>
       <ChoiceBox fx:id="LocationChoiceBox" layoutX="199.0" layoutY="353.0" prefHeight="25.0" prefWidth="502.0">
-          <items>
-            <FXCollections fx:factory="observableArrayList">
-               <String fx:value="Reykjavík" />
-               <String fx:value="Akureyri" />
-            </FXCollections>
-          </items>
    </ChoiceBox>
       <TextField fx:id="SeatChoiceBox" layoutX="199.0" layoutY="441.0" prefHeight="25.0" prefWidth="502.0" text="">
 
