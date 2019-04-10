@@ -25,11 +25,19 @@ public class BookingController {
         @FXML
         private Slider CustomerSeats;
 
+        private int tripID;
+
 
 
         public Booking booking;
 
 
-    }
+        public void initData(int ID) {
+                tripID = ID;
+                System.out.println(tripID);
+        }
+
+
+}
 
 
