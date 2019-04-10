@@ -1,11 +1,9 @@
 package Controller;
 
 import Model.Booking;
-import Model.DayTours;
 import Model.Trip;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -29,22 +27,23 @@ public class BookingController {
         private TextField CustomerLastname;
 
         @FXML
-        private Slider CustomerSeats;
+        private TextField CustomerSeats;
 
-        private int tripID;
+        private Trip selectedTrip;
 
 
 
         public Booking booking;
 
 
-        public void initData(int ID) {
-                tripID = ID;
-                System.out.println(tripID);
+        public void initData(Trip trip) {
+                selectedTrip = trip;
         }
 
 
         public void bookHandler(ActionEvent actionEvent) {
+                
+        }
 
 //                DayTours trips = new DayTours();
 //                Trip trip = trips.getTripById(Integer.toString(tripID));
@@ -52,7 +51,6 @@ public class BookingController {
 
 
 
-        }
 
         private boolean addBooking() {
                 JSONParser parser = new JSONParser();
@@ -63,7 +61,7 @@ public class BookingController {
 
                         JSONObject newJsonObject = new JSONObject();
 
-                        newJsonObject.put("tripID", tripID);
+                        newJsonObject.put("tripID", selectedTrip.getId());
                         newJsonObject.put("firstName", CustomerFirstname.getText());
                         newJsonObject.put("lastName", CustomerLastname.getText());
                         newJsonObject.put("email", CustomerEmail.getText());
@@ -81,7 +79,13 @@ public class BookingController {
                 } catch (Exception e) {
                         System.out.println("Failed.");
                 }
+                return true;
+        }
+
+        public void backHandler(ActionEvent actionEvent) {
+
         }
 }
+
 
 
