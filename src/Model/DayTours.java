@@ -69,11 +69,11 @@ public class DayTours {
         Date inputStart = sdf.parse(start.toString());
         Date inputEnd = sdf.parse(end.toString());
 
-        for (int i = 0; i < trips.size(); i++) {
-            String date = trips.get(i).getDate();
+        for (int i = 0; i < filtered.size(); i++) {
+            String date = filtered.get(i).getDate();
             Date tripDate = sdf.parse(date);
             if(inputStart.before(tripDate) && inputEnd.after(tripDate) || inputStart.equals(tripDate) || inputEnd.equals(tripDate)){
-                matches.add(trips.get(i));
+                matches.add(filtered.get(i));
             }
         }
         filtered = matches;
@@ -82,11 +82,11 @@ public class DayTours {
     public void searchName(String s) {
         ArrayList<Trip> matches = new ArrayList<Trip>();
 
-        for (int i = 0; i < trips.size(); i++) {
-            String name = trips.get(i).getName();
-            String descr = trips.get(i).getDescription();
+        for (int i = 0; i < filtered.size(); i++) {
+            String name = filtered.get(i).getName();
+            String descr = filtered.get(i).getDescription();
             if (name.toLowerCase().contains(s.toLowerCase()) || descr.toLowerCase().contains(s.toLowerCase())) {
-                matches.add(trips.get(i));
+                matches.add(filtered.get(i));
             }
         }
 
@@ -96,9 +96,9 @@ public class DayTours {
     public void searchLocations(String s) {
         ArrayList<Trip> matches = new ArrayList<Trip>();
 
-        for (int i = 0; i < trips.size(); i++) {
-            if (trips.get(i).getLocation().equals(s)) {
-                matches.add(trips.get(i));
+        for (int i = 0; i < filtered.size(); i++) {
+            if (filtered.get(i).getLocation().equals(s)) {
+                matches.add(filtered.get(i));
             }
         }
         filtered = matches;
@@ -107,9 +107,9 @@ public class DayTours {
     public void searchPrice(int low, int high ) {
         ArrayList<Trip> matches = new ArrayList<Trip>();
 
-        for(int i = 0; i < trips.size(); i++) {
-            if(trips.get(i).getPrice() >= low && trips.get(i).getPrice() <= high ) {
-                matches.add(trips.get(i));
+        for(int i = 0; i < filtered.size(); i++) {
+            if(filtered.get(i).getPrice() >= low && filtered.get(i).getPrice() <= high ) {
+                matches.add(filtered.get(i));
             }
         }
         filtered = matches;
@@ -118,9 +118,9 @@ public class DayTours {
     public void searchSeats(int number) {
         ArrayList<Trip> matches = new ArrayList<>();
 
-        for(int i = 0; i < trips.size(); i++){
-            if(trips.get(i).getSeatCount() >= number){
-                matches.add(trips.get(i));
+        for(int i = 0; i < filtered.size(); i++){
+            if(filtered.get(i).getSeatCount() >= number){
+                matches.add(filtered.get(i));
             }
         }
         filtered = matches;
@@ -129,19 +129,19 @@ public class DayTours {
     public void searchInterests(String input){
         ArrayList<Trip> matches = new ArrayList<>();
 
-        for(int i = 0; i < trips.size(); i++){
-            String interests = trips.get(i).getInterests();
+        for(int i = 0; i < filtered.size(); i++){
+            String interests = filtered.get(i).getInterests();
             if(input.toLowerCase().equals(interests.toLowerCase())){
-                matches.add(trips.get(i));
+                matches.add(filtered.get(i));
             }
         }
         filtered = matches;
     }
 
     public Trip getTripById(String id) {
-        for(int i = 0; i < trips.size(); i++){
-            if(trips.get(i).getId() == Integer.parseInt(id)){
-                return trips.get(i);
+        for(int i = 0; i < filtered.size(); i++){
+            if(filtered.get(i).getId() == Integer.parseInt(id)){
+                return filtered.get(i);
             }
         }
         return null;
@@ -150,12 +150,12 @@ public class DayTours {
     public ArrayList<ArrayList<String>> getInfo() {
         ArrayList<String> interests = new ArrayList<>();
         ArrayList<String> places = new ArrayList<>();
-        for(int i = 0; i < trips.size(); i++){
-            if(!interests.contains(trips.get(i).getInterests())){
-                interests.add(trips.get(i).getInterests());
+        for(int i = 0; i < filtered.size(); i++){
+            if(!interests.contains(filtered.get(i).getInterests())){
+                interests.add(filtered.get(i).getInterests());
             }
-            if(!places.contains(trips.get(i).getLocation())){
-                places.add(trips.get(i).getLocation());
+            if(!places.contains(filtered.get(i).getLocation())){
+                places.add(filtered.get(i).getLocation());
             }
         }
         ArrayList<ArrayList<String>> stuff = new ArrayList<>();
@@ -169,8 +169,6 @@ public class DayTours {
     }
 
     public void freshStart(){
-        System.out.println(filtered.get(1).getName());
-        System.out.println(trips.get(1).getName());
         filtered = trips;
     }
 }
