@@ -80,6 +80,24 @@ public class BookingController {
 
         } else {
             System.out.println("TODO gera villusidu");
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getClassLoader().getResource("./View/Errors.fxml"));
+
+            Parent tableViewParent;
+            try {
+                tableViewParent = loader.load();
+            } catch (IOException ex) {
+                System.out.println("Load Failed.");
+                tableViewParent = null;
+            }
+
+            Scene tableViewScene = new Scene(tableViewParent);
+
+            Stage window = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+
+            window.setScene(tableViewScene);
+            window.show();
+
         }
     }
 
