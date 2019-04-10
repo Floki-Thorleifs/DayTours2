@@ -37,7 +37,7 @@ public class BookingController {
 
 
         public void bookHandler(ActionEvent actionEvent) {
-                
+
         }
 
         public void backHandler(ActionEvent actionEvent) {
