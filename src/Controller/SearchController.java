@@ -121,7 +121,10 @@ public class SearchController {
             String location = LocationChoiceBox.getValue().toString();
             dayTours.searchLocations(location);
         }
-        if(inputStartDate != null && inputEndDate != null){
+
+        System.out.println(inputEndDate != null);
+        if(inputEndDate != null && inputStartDate != null){
+            System.out.println("HALLO");
             dayTours.searchDates(inputStartDate, inputEndDate);
         }
         if(nameInput.getText() != null){
