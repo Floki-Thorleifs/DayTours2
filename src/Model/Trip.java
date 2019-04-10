@@ -1,5 +1,7 @@
 package Model;
 
+import java.util.ArrayList;
+
 public class Trip {
 
     private int id;
@@ -9,7 +11,7 @@ public class Trip {
     private String duration;
     private String introduction;
     private int seats;
-    //TODO Import Booking
+    private ArrayList<Booking> bookings;
     private String tourGuide;
     private String date;
     private String location;
@@ -28,6 +30,7 @@ public class Trip {
         this.date = DATE;
         this.location = LOCATION;
         this.price = PRICE;
+        this.bookings = new ArrayList<>();
     }
 
     public void updateSeats(int seatsBought){
@@ -65,4 +68,8 @@ public class Trip {
     public int getId(){ return this.id; }
 
     public String getTourGuide() { return this.tourGuide; }
+
+    public void createBooking(Trip trip){
+
+    }
 }

@@ -84,7 +84,7 @@ public class SearchController {
 
 
     public void searchHandler() throws ParseException {
-        dayTours = new DayTours();
+        dayTours.freshStart();
         LocalDate inputStartDate = startDate.getValue();
         LocalDate inputEndDate = endDate.getValue();
 
