@@ -14,7 +14,12 @@ import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.text.ParseException;
 import java.time.LocalDate;
@@ -59,6 +64,30 @@ public class SearchController {
         }
         getTrips();
 
+    }
+
+    private void testing(){
+        JSONParser parser = new JSONParser();
+
+        try {
+            Object obj = parser.parse(new FileReader("src/JSON/bookings.json"));
+            JSONArray jsonArray = (JSONArray) obj;
+
+            JSONObject newJsonObject = new JSONObject();
+            newJsonObject.put("gamli", "netti");
+            newJsonObject.put("netti", "gamli");
+
+            jsonArray.add(newJsonObject);
+
+            FileWriter file = new FileWriter("src/JSON/bookings.json");
+
+            file.write(jsonArray.toJSONString());
+            file.flush();
+            file.close();
+
+        } catch (Exception e) {
+            System.out.println("Failed.");
+        }
     }
 
     private void getTrips(){

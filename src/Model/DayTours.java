@@ -23,6 +23,7 @@ public class DayTours {
             Object obj = parser.parse(new FileReader("src/JSON/gogn.json"));
             JSONArray jsonArray = (JSONArray) obj;
 
+
             for (int i = 0; i < jsonArray.size(); i++) {
                 JSONObject jsonObject = (JSONObject) jsonArray.get(i);
 

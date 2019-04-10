@@ -9,7 +9,6 @@ import javafx.scene.layout.AnchorPane;
 
 public class BookingController {
 
-
         @FXML
         private TextField CustomerFirstname;
 
