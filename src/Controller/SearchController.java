@@ -5,6 +5,7 @@ import Model.Trip;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -14,12 +15,7 @@ import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.text.ParseException;
 import java.time.LocalDate;
@@ -31,6 +27,7 @@ public class SearchController {
 
     public TableView<ObservableList<String>> resultList = new TableView<>();
     public AnchorPane rootPane;
+    public Button bookingButton;
     private DayTours dayTours;
 
     public ChoiceBox PriceChoiceBox;
@@ -40,6 +37,8 @@ public class SearchController {
     public ChoiceBox InterestsChoiceBox;
     public TextField nameInput;
     public ChoiceBox LocationChoiceBox;
+
+    private boolean anyBookings = false;
 
     public TableColumn<ObservableList<String>, String> column;
 
@@ -60,34 +59,18 @@ public class SearchController {
             final int finalIdx = i;
             column = new TableColumn<>(columnNames.get(i));
             column.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().get(finalIdx)));
+            if(i == columnNames.size() - 1){
+                column.setMaxWidth(0);
+            } else if (i == 0) {
+                column.setMinWidth(200);
+            } else {
+                column.setMinWidth((739-200)/4);
+            }
             resultList.getColumns().add(column);
         }
+
         getTrips();
 
-    }
-
-    private void testing(){
-        JSONParser parser = new JSONParser();
-
-        try {
-            Object obj = parser.parse(new FileReader("src/JSON/bookings.json"));
-            JSONArray jsonArray = (JSONArray) obj;
-
-            JSONObject newJsonObject = new JSONObject();
-            newJsonObject.put("gamli", "netti");
-            newJsonObject.put("netti", "gamli");
-
-            jsonArray.add(newJsonObject);
-
-            FileWriter file = new FileWriter("src/JSON/bookings.json");
-
-            file.write(jsonArray.toJSONString());
-            file.flush();
-            file.close();
-
-        } catch (Exception e) {
-            System.out.println("Failed.");
-        }
     }
 
     private void getTrips(){
@@ -112,6 +95,8 @@ public class SearchController {
     }
 
 
+
+
     public void searchHandler() throws ParseException {
         dayTours.freshStart();
         LocalDate inputStartDate = startDate.getValue();
@@ -122,9 +107,7 @@ public class SearchController {
             dayTours.searchLocations(location);
         }
 
-        System.out.println(inputEndDate != null);
         if(inputEndDate != null && inputStartDate != null){
-            System.out.println("HALLO");
             dayTours.searchDates(inputStartDate, inputEndDate);
         }
         if(nameInput.getText() != null){
@@ -148,10 +131,9 @@ public class SearchController {
         }
 
         if(InterestsChoiceBox.getValue() != null){
-            System.out.println(InterestsChoiceBox.getValue());
             dayTours.searchInterests(InterestsChoiceBox.getValue().toString());
         }
-        if(SeatChoiceBox.hasProperties()){
+        if(SeatChoiceBox.getText().length() != 0){
             dayTours.searchSeats(Integer.parseInt(SeatChoiceBox.getText()));
         }
         getTrips();
@@ -194,5 +176,19 @@ public class SearchController {
             window.show();
 
         }
+    }
+
+    public void bookingsHandler(ActionEvent actionEvent) throws IOException {
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getClassLoader().getResource("./View/MyBookings.fxml"));
+        Parent tableViewParent = loader.load();
+
+        Scene tableViewScene = new Scene(tableViewParent);
+
+        Stage window = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+
+        window.setScene(tableViewScene);
+        window.show();
     }
 }

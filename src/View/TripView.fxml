@@ -53,7 +53,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Button layoutX="474.0" layoutY="711.0" mnemonicParsing="false" onAction="#bookHandler" opacity="0.75" prefHeight="43.0" prefWidth="134.0" style="-fx-background-color: #2B7A78;" text="Book Trip!" textFill="WHITE">
+      <Button layoutX="474.0" layoutY="711.0" mnemonicParsing="false" onAction="#bookHandler" prefHeight="43.0" prefWidth="134.0" style="-fx-background-color: #2B7A78;" text="Book Trip!" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>

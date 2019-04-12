@@ -18,19 +18,27 @@ public class Trip {
     private int price;
 
 
-    public Trip(int ID, String NAME, String INTERESTS, String DESCRIPTION, String DURATION, String INTRODUCTION, int SEATS, String TOURGUIDE, String DATE, String LOCATION, int PRICE){
+    public Trip(int ID, String NAME, String INTERESTS, String DESCRIPTION, String DURATION, String INTRODUCTION, int SEATS, String TOURGUIDE, String DATE, String LOCATION, int PRICE, ArrayList<Booking> BOOKINGS){
         this.id = ID;
         this.name = NAME;
         this.interests = INTERESTS;
         this.description = DESCRIPTION;
         this.duration = DURATION;
         this.introduction = INTRODUCTION;
-        this.seats = SEATS;
         this.tourGuide = TOURGUIDE;
         this.date = DATE;
         this.location = LOCATION;
         this.price = PRICE;
-        this.bookings = new ArrayList<>();
+        this.bookings = BOOKINGS;
+
+        if(BOOKINGS.size() > 0){
+            for(int i = 0; i < BOOKINGS.size(); i++){
+                this.seats = SEATS - BOOKINGS.get(i).getSeats();
+            }
+        } else {
+            this.seats = SEATS;
+        }
+
     }
 
     public void updateSeats(int seatsBought){
@@ -68,6 +76,10 @@ public class Trip {
     public int getId(){ return this.id; }
 
     public String getTourGuide() { return this.tourGuide; }
+
+    public ArrayList<Booking> getBookings(){
+        return this.bookings;
+    }
 
     public void createBooking(Trip trip){
 

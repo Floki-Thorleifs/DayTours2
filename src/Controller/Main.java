@@ -14,10 +14,10 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("../View/SearchTripView.fxml"));
         primaryStage.setTitle("Day Tours");
-        primaryStage.setScene(new Scene(root, 800, 830));
-        primaryStage.setMaxWidth(800);
+        primaryStage.setScene(new Scene(root, 801, 830));
+        primaryStage.setMaxWidth(801);
         primaryStage.setMaxHeight(830);
-        primaryStage.setMinWidth(800);
+        primaryStage.setMinWidth(801);
         primaryStage.setMinHeight(830);
         primaryStage.show();
     }
