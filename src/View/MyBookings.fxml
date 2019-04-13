@@ -21,81 +21,86 @@
                 <Font name="Heiti TC Medium" size="34.0" />
             </font>
         </Label>
-        <Label alignment="BASELINE_CENTER" contentDisplay="CENTER" prefHeight="127.0" prefWidth="800.0" style="-fx-background-color: #49494b; -fx-border-color: #bd8c7d  #bd8c7d white  #bd8c7d; -fx-border-style: 5;" text="Search" textFill="#dcae1d">
+        <Label alignment="BASELINE_CENTER" contentDisplay="CENTER" prefHeight="127.0" prefWidth="800.0" style="-fx-background-color: #49494b; -fx-border-color: #bd8c7d  #bd8c7d white  #bd8c7d; -fx-border-style: 5;" text="Bookings" textFill="#dcae1d">
             <font>
                 <Font name="Heiti TC Medium" size="34.0" />
             </font>
         </Label>
-      <Label layoutX="55.0" layoutY="235.0" prefHeight="46.0" prefWidth="248.0" text="Booking number" textFill="WHITE">
+      <Label layoutX="52.0" layoutY="157.0" prefHeight="46.0" prefWidth="248.0" text="Booking number" textFill="WHITE">
          <font>
             <Font size="31.0" />
          </font>
       </Label>
-      <Label layoutX="55.0" layoutY="315.0" prefWidth="200.0" text="Buyer name" textFill="WHITE">
+      <Label layoutX="52.0" layoutY="237.0" prefWidth="200.0" text="Buyer name" textFill="WHITE">
          <font>
             <Font size="31.0" />
          </font>
       </Label>
-      <Label fx:id="buyerBooked" layoutX="305.0" layoutY="316.0" prefHeight="46.0" prefWidth="374.0" textFill="WHITE">
+      <Label fx:id="buyerBooked" layoutX="302.0" layoutY="238.0" prefHeight="46.0" prefWidth="374.0" textFill="WHITE">
          <font>
             <Font size="31.0" />
          </font>
       </Label>
-      <Label fx:id="locationBooked" layoutX="305.0" layoutY="635.0" prefHeight="46.0" prefWidth="374.0" textFill="WHITE">
+      <Label fx:id="locationBooked" layoutX="302.0" layoutY="557.0" prefHeight="46.0" prefWidth="374.0" textFill="WHITE">
          <font>
             <Font size="31.0" />
          </font>
       </Label>
-      <Label fx:id="tripBooked" layoutX="305.0" layoutY="552.0" prefHeight="46.0" prefWidth="374.0" textFill="WHITE">
+      <Label fx:id="tripBooked" layoutX="302.0" layoutY="474.0" prefHeight="46.0" prefWidth="374.0" textFill="WHITE">
          <font>
             <Font size="31.0" />
          </font>
       </Label>
-      <Label fx:id="dateBooked" layoutX="305.0" layoutY="475.0" prefHeight="46.0" prefWidth="374.0" textFill="WHITE">
+      <Label fx:id="dateBooked" layoutX="302.0" layoutY="397.0" prefHeight="46.0" prefWidth="374.0" textFill="WHITE">
          <font>
             <Font size="31.0" />
          </font>
       </Label>
-      <Label fx:id="seatsBooked" layoutX="305.0" layoutY="395.0" prefHeight="46.0" prefWidth="374.0" textFill="WHITE">
+      <Label fx:id="seatsBooked" layoutX="302.0" layoutY="317.0" prefHeight="46.0" prefWidth="374.0" textFill="WHITE">
          <font>
             <Font size="31.0" />
          </font>
       </Label>
-      <Label layoutX="55.0" layoutY="475.0" prefWidth="200.0" text="Date" textFill="WHITE">
+      <Label layoutX="52.0" layoutY="397.0" prefWidth="200.0" text="Date" textFill="WHITE">
          <font>
             <Font size="31.0" />
          </font>
       </Label>
-      <Label layoutX="55.0" layoutY="635.0" prefWidth="200.0" text="Location" textFill="WHITE">
+      <Label layoutX="52.0" layoutY="557.0" prefWidth="200.0" text="Location" textFill="WHITE">
          <font>
             <Font size="31.0" />
          </font>
       </Label>
-      <Label layoutX="55.0" layoutY="555.0" prefHeight="46.0" prefWidth="200.0" text="Booked trip" textFill="WHITE">
+      <Label layoutX="52.0" layoutY="477.0" prefHeight="46.0" prefWidth="200.0" text="Booked trip" textFill="WHITE">
          <font>
             <Font size="31.0" />
          </font>
       </Label>
-      <Label layoutX="55.0" layoutY="395.0" prefWidth="200.0" text="Seats booked" textFill="WHITE">
+      <Label layoutX="52.0" layoutY="317.0" prefWidth="200.0" text="Seats booked" textFill="WHITE">
          <font>
             <Font size="31.0" />
          </font>
       </Label>
-      <Label layoutX="46.0" layoutY="166.0" prefHeight="25.0" prefWidth="274.0" text="Some information about your booking" textFill="WHITE">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <TextField fx:id="numberInput" layoutX="303.0" layoutY="235.0" prefHeight="46.0" prefWidth="261.0" />
+      <TextField fx:id="numberInput" layoutX="300.0" layoutY="157.0" prefHeight="46.0" prefWidth="261.0" />
       <Button fx:id="aboutButton" layoutX="443.0" layoutY="714.0" mnemonicParsing="false" onAction="#onClick" prefHeight="39.0" prefWidth="123.0" style="-fx-background-color: #2B7A78;" text="About trip" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="579.0" layoutY="239.0" mnemonicParsing="false" onAction="#getInfo" prefHeight="39.0" prefWidth="131.0" style="-fx-background-color: #2B7A78;" text="Get booking" textFill="WHITE">
+      <Button layoutX="576.0" layoutY="161.0" mnemonicParsing="false" onAction="#getInfo" prefHeight="39.0" prefWidth="131.0" style="-fx-background-color: #2B7A78;" text="Get booking" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
+      <Label layoutX="52.0" layoutY="637.0" prefWidth="200.0" text="Total price" textFill="WHITE">
+         <font>
+            <Font size="31.0" />
+         </font>
+      </Label>
+      <Label fx:id="totalPrice" layoutX="300.0" layoutY="637.0" prefHeight="46.0" prefWidth="374.0" textFill="WHITE">
+         <font>
+            <Font size="31.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>

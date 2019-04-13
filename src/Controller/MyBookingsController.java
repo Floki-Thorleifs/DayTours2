@@ -27,6 +27,7 @@ public class MyBookingsController {
     public Label seatsBooked;
     public TextField numberInput;
     public Button aboutButton;
+    public Label totalPrice;
     private DayTours dayTours;
     public TableColumn<ObservableList<String>, String> column;
     private Trip trip;
@@ -127,7 +128,9 @@ public class MyBookingsController {
                 seatsBooked.setText(Integer.toString(book.getSeats()));
                 dateBooked.setText(book.getDate());
                 buyerBooked.setText(book.getFullName());
+                totalPrice.setText(trip.getPrice() * book.getSeats() + "kr.");
                 aboutButton.setDisable(false);
+
             }
         } else if (numberInput.getText().length() != 0) {
             numberInput.clear();

@@ -15,10 +15,24 @@ public class Trip {
     private String tourGuide;
     private String date;
     private String location;
+    private double rating;
     private int price;
 
 
-    public Trip(int ID, String NAME, String INTERESTS, String DESCRIPTION, String DURATION, String INTRODUCTION, int SEATS, String TOURGUIDE, String DATE, String LOCATION, int PRICE, ArrayList<Booking> BOOKINGS){
+    public Trip(int ID,
+                String NAME,
+                String INTERESTS,
+                String DESCRIPTION,
+                String DURATION,
+                String INTRODUCTION,
+                int SEATS,
+                String TOURGUIDE,
+                String DATE,
+                String LOCATION,
+                int PRICE,
+                ArrayList<Booking> BOOKINGS,
+                double RATING
+    ){
         this.id = ID;
         this.name = NAME;
         this.interests = INTERESTS;
@@ -30,6 +44,9 @@ public class Trip {
         this.location = LOCATION;
         this.price = PRICE;
         this.bookings = BOOKINGS;
+        double tempRating = 0;
+
+        this.rating = RATING;
 
         if(BOOKINGS.size() > 0){
             for(int i = 0; i < BOOKINGS.size(); i++){
@@ -41,8 +58,9 @@ public class Trip {
 
     }
 
-    public void updateSeats(int seatsBought){
-        this.seats -= seatsBought;
+
+    public double getRating(){
+        return this.rating;
     }
 
     public String getLocation(){

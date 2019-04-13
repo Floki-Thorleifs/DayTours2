@@ -16,6 +16,8 @@ public class DayTours {
     public ArrayList<Trip> trips = new ArrayList<Trip>();
     private ArrayList<Trip> filtered = trips;
     private ArrayList<Booking> books = new ArrayList<>();
+    private ArrayList<String> rats = new ArrayList<>();
+    private ArrayList<String> ratingNumbers = new ArrayList<>();
 
     public DayTours(){
 
@@ -26,6 +28,8 @@ public class DayTours {
             JSONArray jsonArray = (JSONArray) obj;
             Object bookings = parser.parse(new FileReader("src/JSON/bookings.json"));
             JSONArray bookingsArray = (JSONArray) bookings;
+            Object ratings = parser.parse(new FileReader("src/JSON/ratings.json"));
+            JSONArray ratingsArray = (JSONArray) ratings;
 
             for(int j = 0; j < bookingsArray.size(); j++){
                 JSONObject bookObject = (JSONObject) bookingsArray.get(j);
@@ -40,6 +44,12 @@ public class DayTours {
                 int id = (int)((long) bookObject.get("id"));
                 Booking temp = new Booking(tripId, fName, lName, email, phone, seats, date,id);
                 books.add(temp);
+            }
+            ratingNumbers = new ArrayList<>();
+            for(int k = 0; k < ratingsArray.size(); k++){
+                JSONObject ratingsObject = (JSONObject) ratingsArray.get(k);
+                rats.add((String) ratingsObject.get("trip"));
+                ratingNumbers.add(Integer.toString((int) ((long)ratingsObject.get("rating"))));
             }
 
 
@@ -65,6 +75,19 @@ public class DayTours {
                         tripBookings.add(books.get(j));
                     }
                 }
+                int count = 0;
+                double ratingl = 0;
+                for(int h = 0; h < rats.size(); h++){
+                    if(rats.get(h).equals(name)){
+                        count++;
+                        ratingl += Integer.parseInt(ratingNumbers.get(h));
+                    }
+                }
+                if(count == 0){
+                    ratingl = 5;
+                } else {
+                    ratingl = ratingl/count;
+                }
                 trips.add(new Trip(
                         id,
                         name,
@@ -77,8 +100,8 @@ public class DayTours {
                         date,
                         location,
                         price,
-                        tripBookings
-
+                        tripBookings,
+                        ratingl
                 ));
             }
 

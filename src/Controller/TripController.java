@@ -24,6 +24,7 @@ public class TripController {
     public Label SeatsId;
     public Label DescriptionId;
     public Trip selectedTrip;
+    public Label rating;
 
 
     @FXML
@@ -41,6 +42,7 @@ public class TripController {
         LocationId.setText(trip.getLocation());
         SeatsId.setText(Integer.toString(trip.getSeatCount()));
         DescriptionId.setText(trip.getDescription());
+        rating.setText(trip.getRating() + "/5");
 
         selectedTrip = trip;
     }
