@@ -15,6 +15,9 @@ public class DayTours {
 
     public ArrayList<Trip> trips = new ArrayList<Trip>();
     private ArrayList<Trip> filtered = trips;
+    private ArrayList<Booking> books = new ArrayList<>();
+    private ArrayList<String> rats = new ArrayList<>();
+    private ArrayList<String> ratingNumbers = new ArrayList<>();
 
     public DayTours(){
 
@@ -23,6 +26,31 @@ public class DayTours {
         try {
             Object obj = parser.parse(new FileReader("src/JSON/gogn.json"));
             JSONArray jsonArray = (JSONArray) obj;
+            Object bookings = parser.parse(new FileReader("src/JSON/bookings.json"));
+            JSONArray bookingsArray = (JSONArray) bookings;
+            Object ratings = parser.parse(new FileReader("src/JSON/ratings.json"));
+            JSONArray ratingsArray = (JSONArray) ratings;
+
+            for(int j = 0; j < bookingsArray.size(); j++){
+                JSONObject bookObject = (JSONObject) bookingsArray.get(j);
+
+                int tripId = (int) ((long)bookObject.get("tripID"));
+                String fName = (String) bookObject.get("firstName");
+                String lName = (String) bookObject.get("lastName");
+                String email = (String) bookObject.get("email");
+                String phone = (String) bookObject.get("phonenumber");
+                int seats = (int)((long) bookObject.get("seats"));
+                String date = (String) bookObject.get("date");
+                int id = (int)((long) bookObject.get("id"));
+                Booking temp = new Booking(tripId, fName, lName, email, phone, seats, date,id);
+                books.add(temp);
+            }
+            ratingNumbers = new ArrayList<>();
+            for(int k = 0; k < ratingsArray.size(); k++){
+                JSONObject ratingsObject = (JSONObject) ratingsArray.get(k);
+                rats.add((String) ratingsObject.get("trip"));
+                ratingNumbers.add(Integer.toString((int) ((long)ratingsObject.get("rating"))));
+            }
 
 
             for (int i = 0; i < jsonArray.size(); i++) {
@@ -39,7 +67,27 @@ public class DayTours {
                 int seats = (int)((long)jsonObject.get("Seats"));
                 String description = (String) jsonObject.get("Description");
                 int price = (int)((long)jsonObject.get("Price"));
-
+                ArrayList<Booking> tripBookings = new ArrayList<>();
+                for(int j = 0; j < books.size(); j++){
+                    if(books.get(j).getID() == id){
+                        System.out.println(books.get(j).getID());
+                        System.out.println(id);
+                        tripBookings.add(books.get(j));
+                    }
+                }
+                int count = 0;
+                double ratingl = 0;
+                for(int h = 0; h < rats.size(); h++){
+                    if(rats.get(h).equals(name)){
+                        count++;
+                        ratingl += Integer.parseInt(ratingNumbers.get(h));
+                    }
+                }
+                if(count == 0){
+                    ratingl = 5;
+                } else {
+                    ratingl = ratingl/count;
+                }
                 trips.add(new Trip(
                         id,
                         name,
@@ -51,9 +99,12 @@ public class DayTours {
                         tourGuide,
                         date,
                         location,
-                        price
+                        price,
+                        tripBookings,
+                        ratingl
                 ));
             }
+
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -167,6 +218,28 @@ public class DayTours {
     public ArrayList<Trip> getTrips(){
         return filtered;
     }
+
+    public ArrayList<Trip> getBookings(){
+        ArrayList<Trip> matches = new ArrayList<>();
+        for(int i = 0; i < trips.size(); i++){
+            if(trips.get(i).getBookings().size() != 0){
+                matches.add(trips.get(i));
+            }
+        }
+        return matches;
+    }
+
+
+
+    public Booking getBookingById(int number){
+        for(int i = 0; i < books.size(); i++){
+            if(books.get(i).getrealID() == number){
+                return books.get(i);
+            }
+        }
+        return null;
+    }
+
 
     public void freshStart(){
         filtered = trips;

@@ -21,6 +21,8 @@ public class Thanks {
     public Label buyerBooked;
     public Trip bookedTrip;
     public boolean isBooked = false;
+    public Label bookingNumber;
+    public Label totalPrice;
 
     public void initData(Trip trip, Booking booking){
 
@@ -31,11 +33,11 @@ public class Thanks {
         buyerBooked.setText(booking.getFullName());
         bookedTrip = trip;
         isBooked = true;
+        totalPrice.setText(trip.getPrice() * booking.getSeats() + "kr.");
+
+        bookingNumber.setText(Integer.toString(booking.getrealID()));
     }
 
-    public void errorData(Trip trip){
-        bookedTrip = trip;
-    }
 
 
     public void backHandler(ActionEvent actionEvent) {

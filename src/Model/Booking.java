@@ -9,9 +9,10 @@ public class Booking {
     private String phone;
     private int seats;
     private String date;
+    private int id;
 
 
-    public Booking(int TRIPID, String NAME, String LASTNAME, String EMAIL, String PHONE, int SEATS, String DATE) {
+    public Booking(int TRIPID, String NAME, String LASTNAME, String EMAIL, String PHONE, int SEATS, String DATE, int ID) {
         this.tripID = TRIPID;
         this.name = NAME;
         this.lastName = LASTNAME;
@@ -19,6 +20,7 @@ public class Booking {
         this.phone = PHONE;
         this.seats = SEATS;
         this.date = DATE;
+        this.id = ID;
     }
 
     public int getID() {
@@ -42,6 +44,10 @@ public class Booking {
     }
 
     public String getDate() { return this.date; }
+
+    public int getrealID(){
+        return this.id;
+    }
 
 
 }
