@@ -137,20 +137,6 @@ public class SearchController {
             dayTours.searchSeats(Integer.parseInt(SeatChoiceBox.getText()));
         }
         getTrips();
-        /*ObservableList<Trip> results = FXCollections.observableArrayList(dayTours.getTrips());
-        ArrayList<String> names = new ArrayList<>();
-        for(int i = 0; i < results.size(); i++){
-            names.add(results.get(i).getName());
-        }
-        ObservableList<String> fin = FXCollections.observableArrayList(names);
-        resultList.setItems(fin);*/
-
-        
-
-
-//        LocalDate inputStartDate = startDate.getValue();
-//        LocalDate inputEndDate = endDate.getValue();
-//        dayTours.searchDates(inputStartDate, inputEndDate);
     }
 
 
